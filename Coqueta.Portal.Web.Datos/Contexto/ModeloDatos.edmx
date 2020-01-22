@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IncidenciasCoquetaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cLotes">
+          <Key>
+            <PropertyRef Name="numeroLote" />
+            <PropertyRef Name="pedido" />
+          </Key>
+          <Property Name="numeroLote" Type="smallint" Nullable="false" />
+          <Property Name="pedido" Type="int" Nullable="false" />
+          <Property Name="fechaAdornoTerminado" Type="date" Nullable="false" />
+          <Property Name="semanaEntrega" Type="smallint" />
+          <Property Name="caja" Type="char" MaxLength="20" />
+          <Property Name="fechaCapturaLote" Type="date" />
+          <Property Name="colorEntreSuela" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="colorForro" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="colorPlantilla" Type="char" MaxLength="2" />
+          <Property Name="colorSuela" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="color1" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="color2" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="color3" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="color4" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="color5" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="color6" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="paresCorrida1" Type="smallint" Nullable="false" />
+          <Property Name="paresCorrida2" Type="smallint" Nullable="false" />
+          <Property Name="paresCorrida3" Type="smallint" Nullable="false" />
+          <Property Name="paresCorrida4" Type="smallint" Nullable="false" />
+          <Property Name="paresCorrida5" Type="smallint" Nullable="false" />
+          <Property Name="fechaAvanceCorte" Type="date" Nullable="false" />
+          <Property Name="fechaAvanceMontado" Type="date" />
+          <Property Name="claveLinea" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="fechaEntregaPlaneacion" Type="date" />
+          <Property Name="claveEstilo" Type="int" Nullable="false" />
+          <Property Name="fechaEntregaDestinatario" Type="date" />
+          <Property Name="fechaCancelacionLote" Type="date" />
+          <Property Name="claveForro" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="claveHorma" Type="char" MaxLength="8" />
+          <Property Name="fechaInicioLote" Type="date" Nullable="false" />
+          <Property Name="combinacion" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="linea" Type="smallint" Nullable="false" />
+          <Property Name="loteMaquila" Type="smallint" />
+          <Property Name="claveMarca" Type="char" MaxLength="20" />
+          <Property Name="costoMaterial1" Type="money" Nullable="false" />
+          <Property Name="costoMaterial2" Type="money" Nullable="false" />
+          <Property Name="costoMaterial3" Type="money" Nullable="false" />
+          <Property Name="costoMaterial4" Type="money" Nullable="false" />
+          <Property Name="costoMaterial5" Type="money" Nullable="false" />
+          <Property Name="fechaMontado" Type="date" Nullable="false" />
+          <Property Name="talla110Bebe" Type="smallint" Nullable="false" />
+          <Property Name="talla115Bebe" Type="smallint" Nullable="false" />
+          <Property Name="talla120Bebe" Type="smallint" Nullable="false" />
+          <Property Name="talla100" Type="smallint" Nullable="false" />
+          <Property Name="talla105" Type="smallint" Nullable="false" />
+          <Property Name="talla110" Type="smallint" Nullable="false" />
+          <Property Name="talla115" Type="smallint" Nullable="false" />
+          <Property Name="talla120" Type="smallint" Nullable="false" />
+          <Property Name="talla125" Type="smallint" Nullable="false" />
+          <Property Name="talla130" Type="smallint" Nullable="false" />
+          <Property Name="talla135" Type="smallint" Nullable="false" />
+          <Property Name="talla140" Type="smallint" Nullable="false" />
+          <Property Name="talla145" Type="smallint" Nullable="false" />
+          <Property Name="talla150" Type="smallint" Nullable="false" />
+          <Property Name="talla155" Type="smallint" Nullable="false" />
+          <Property Name="talla160" Type="smallint" Nullable="false" />
+          <Property Name="talla165" Type="smallint" Nullable="false" />
+          <Property Name="talla170" Type="smallint" Nullable="false" />
+          <Property Name="talla175" Type="smallint" Nullable="false" />
+          <Property Name="talla180" Type="smallint" Nullable="false" />
+          <Property Name="talla185" Type="smallint" Nullable="false" />
+          <Property Name="talla190" Type="smallint" Nullable="false" />
+          <Property Name="talla195" Type="smallint" Nullable="false" />
+          <Property Name="talla200" Type="smallint" Nullable="false" />
+          <Property Name="talla205" Type="smallint" Nullable="false" />
+          <Property Name="talla210" Type="smallint" Nullable="false" />
+          <Property Name="talla215" Type="smallint" Nullable="false" />
+          <Property Name="talla220" Type="smallint" Nullable="false" />
+          <Property Name="talla225" Type="smallint" Nullable="false" />
+          <Property Name="talla230" Type="smallint" Nullable="false" />
+          <Property Name="talla235" Type="smallint" Nullable="false" />
+          <Property Name="talla240" Type="smallint" Nullable="false" />
+          <Property Name="talla245" Type="smallint" Nullable="false" />
+          <Property Name="talla250" Type="smallint" Nullable="false" />
+          <Property Name="talla255" Type="smallint" Nullable="false" />
+          <Property Name="talla260" Type="smallint" Nullable="false" />
+          <Property Name="talla265" Type="smallint" />
+          <Property Name="talla270" Type="smallint" />
+          <Property Name="talla900" Type="smallint" Nullable="false" />
+          <Property Name="talla905" Type="smallint" Nullable="false" />
+          <Property Name="observaciones" Type="char" MaxLength="40" />
+          <Property Name="fechaPespunte" Type="date" Nullable="false" />
+          <Property Name="fechaPespunteTerminado" Type="date" Nullable="false" />
+          <Property Name="clavePiel1" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="clavePiel2" Type="char" MaxLength="2" />
+          <Property Name="clavePiel3" Type="char" MaxLength="2" />
+          <Property Name="clavePiel4" Type="char" MaxLength="2" />
+          <Property Name="clavePiel5" Type="char" MaxLength="2" />
+          <Property Name="clavePiel6" Type="char" MaxLength="2" />
+          <Property Name="fechaPreliminar" Type="date" Nullable="false" />
+          <Property Name="proveedorMaquila" Type="smallint" />
+          <Property Name="referenciaLote" Type="int" />
+          <Property Name="semanaProgramadaEntregaLote" Type="int" />
+          <Property Name="semanaEntregaLote" Type="int" />
+          <Property Name="claveEstatusLote" Type="smallint" />
+          <Property Name="claveSubLinea" Type="smallint" Nullable="false" />
+          <Property Name="claveSuela" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="fechaTerminadoFabricacion" Type="date" Nullable="false" />
+          <Property Name="claveTipoNumeracion" Type="smallint" />
+          <Property Name="claveTipoPlantilla" Type="char" MaxLength="2" />
+          <Property Name="totalPares" Type="smallint" Nullable="false" />
+          <Property Name="ultimoProceso" Type="smallint" />
+        </EntityType>
+        <EntityType Name="cTipoIncidencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Incidencia" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="cUsuarios">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreUsuario" Type="nvarchar" MaxLength="500" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="lIncidencias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TipoProductoId" Type="int" />
+          <Property Name="Lote" Type="smallint" />
+          <Property Name="NombreIncidencia" Type="nvarchar" MaxLength="100" />
+          <Property Name="TotalIncidencias" Type="int" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="rFotoPorlIncidencias">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lIncidenciasId" Type="int" />
+          <Property Name="Foto" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="uvwLotesMontado">
+          <Key>
+            <PropertyRef Name="Estilo" />
+            <PropertyRef Name="Combinacion" />
+          </Key>
+          <Property Name="Lote" Type="varchar" MaxLength="60" />
+          <Property Name="Estilo" Type="int" Nullable="false" />
+          <Property Name="Combinacion" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_lIncidencias_cTipoIncidencia">
+          <End Role="cTipoIncidencia" Type="Self.cTipoIncidencia" Multiplicity="1" />
+          <End Role="lIncidencias" Type="Self.lIncidencias" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cTipoIncidencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="lIncidencias">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rFotoPorlIncidencias_lIncidencias">
+          <End Role="lIncidencias" Type="Self.lIncidencias" Multiplicity="0..1" />
+          <End Role="rFotoPorlIncidencias" Type="Self.rFotoPorlIncidencias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lIncidencias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="rFotoPorlIncidencias">
+              <PropertyRef Name="lIncidenciasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IncidenciasCoquetaModelStoreContainer">
+          <EntitySet Name="cLotes" EntityType="Self.cLotes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cTipoIncidencia" EntityType="Self.cTipoIncidencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cUsuarios" EntityType="Self.cUsuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="lIncidencias" EntityType="Self.lIncidencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rFotoPorlIncidencias" EntityType="Self.rFotoPorlIncidencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="uvwLotesMontado" EntityType="Self.uvwLotesMontado" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [uvwLotesMontado].[Lote] AS [Lote], 
+    [uvwLotesMontado].[Estilo] AS [Estilo], 
+    [uvwLotesMontado].[Combinacion] AS [Combinacion], 
+    [uvwLotesMontado].[Descripcion] AS [Descripcion]
+    FROM [dbo].[uvwLotesMontado] AS [uvwLotesMontado]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_lIncidencias_cTipoIncidencia" Association="Self.FK_lIncidencias_cTipoIncidencia">
+            <End Role="cTipoIncidencia" EntitySet="cTipoIncidencia" />
+            <End Role="lIncidencias" EntitySet="lIncidencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rFotoPorlIncidencias_lIncidencias" Association="Self.FK_rFotoPorlIncidencias_lIncidencias">
+            <End Role="lIncidencias" EntitySet="lIncidencias" />
+            <End Role="rFotoPorlIncidencias" EntitySet="rFotoPorlIncidencias" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IncidenciasCoquetaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Lote">
+          <Key>
+            <PropertyRef Name="numeroLote" />
+            <PropertyRef Name="pedido" />
+          </Key>
+          <Property Name="numeroLote" Type="Int16" Nullable="false" />
+          <Property Name="pedido" Type="Int32" Nullable="false" />
+          <Property Name="fechaAdornoTerminado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="semanaEntrega" Type="Int16" />
+          <Property Name="caja" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="fechaCapturaLote" Type="DateTime" Precision="0" />
+          <Property Name="colorEntreSuela" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="colorForro" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="colorPlantilla" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="colorSuela" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="color1" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="color2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="color3" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="color4" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="color5" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="color6" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="paresCorrida1" Type="Int16" Nullable="false" />
+          <Property Name="paresCorrida2" Type="Int16" Nullable="false" />
+          <Property Name="paresCorrida3" Type="Int16" Nullable="false" />
+          <Property Name="paresCorrida4" Type="Int16" Nullable="false" />
+          <Property Name="paresCorrida5" Type="Int16" Nullable="false" />
+          <Property Name="fechaAvanceCorte" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaAvanceMontado" Type="DateTime" Precision="0" />
+          <Property Name="claveLinea" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="fechaEntregaPlaneacion" Type="DateTime" Precision="0" />
+          <Property Name="claveEstilo" Type="Int32" Nullable="false" />
+          <Property Name="fechaEntregaDestinatario" Type="DateTime" Precision="0" />
+          <Property Name="fechaCancelacionLote" Type="DateTime" Precision="0" />
+          <Property Name="claveForro" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="claveHorma" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="fechaInicioLote" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="combinacion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="linea" Type="Int16" Nullable="false" />
+          <Property Name="loteMaquila" Type="Int16" />
+          <Property Name="claveMarca" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="costoMaterial1" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="costoMaterial2" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="costoMaterial3" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="costoMaterial4" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="costoMaterial5" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="fechaMontado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="talla110Bebe" Type="Int16" Nullable="false" />
+          <Property Name="talla115Bebe" Type="Int16" Nullable="false" />
+          <Property Name="talla120Bebe" Type="Int16" Nullable="false" />
+          <Property Name="talla100" Type="Int16" Nullable="false" />
+          <Property Name="talla105" Type="Int16" Nullable="false" />
+          <Property Name="talla110" Type="Int16" Nullable="false" />
+          <Property Name="talla115" Type="Int16" Nullable="false" />
+          <Property Name="talla120" Type="Int16" Nullable="false" />
+          <Property Name="talla125" Type="Int16" Nullable="false" />
+          <Property Name="talla130" Type="Int16" Nullable="false" />
+          <Property Name="talla135" Type="Int16" Nullable="false" />
+          <Property Name="talla140" Type="Int16" Nullable="false" />
+          <Property Name="talla145" Type="Int16" Nullable="false" />
+          <Property Name="talla150" Type="Int16" Nullable="false" />
+          <Property Name="talla155" Type="Int16" Nullable="false" />
+          <Property Name="talla160" Type="Int16" Nullable="false" />
+          <Property Name="talla165" Type="Int16" Nullable="false" />
+          <Property Name="talla170" Type="Int16" Nullable="false" />
+          <Property Name="talla175" Type="Int16" Nullable="false" />
+          <Property Name="talla180" Type="Int16" Nullable="false" />
+          <Property Name="talla185" Type="Int16" Nullable="false" />
+          <Property Name="talla190" Type="Int16" Nullable="false" />
+          <Property Name="talla195" Type="Int16" Nullable="false" />
+          <Property Name="talla200" Type="Int16" Nullable="false" />
+          <Property Name="talla205" Type="Int16" Nullable="false" />
+          <Property Name="talla210" Type="Int16" Nullable="false" />
+          <Property Name="talla215" Type="Int16" Nullable="false" />
+          <Property Name="talla220" Type="Int16" Nullable="false" />
+          <Property Name="talla225" Type="Int16" Nullable="false" />
+          <Property Name="talla230" Type="Int16" Nullable="false" />
+          <Property Name="talla235" Type="Int16" Nullable="false" />
+          <Property Name="talla240" Type="Int16" Nullable="false" />
+          <Property Name="talla245" Type="Int16" Nullable="false" />
+          <Property Name="talla250" Type="Int16" Nullable="false" />
+          <Property Name="talla255" Type="Int16" Nullable="false" />
+          <Property Name="talla260" Type="Int16" Nullable="false" />
+          <Property Name="talla265" Type="Int16" />
+          <Property Name="talla270" Type="Int16" />
+          <Property Name="talla900" Type="Int16" Nullable="false" />
+          <Property Name="talla905" Type="Int16" Nullable="false" />
+          <Property Name="observaciones" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="fechaPespunte" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fechaPespunteTerminado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="clavePiel1" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="clavePiel2" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="clavePiel3" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="clavePiel4" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="clavePiel5" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="clavePiel6" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="fechaPreliminar" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="proveedorMaquila" Type="Int16" />
+          <Property Name="referenciaLote" Type="Int32" />
+          <Property Name="semanaProgramadaEntregaLote" Type="Int32" />
+          <Property Name="semanaEntregaLote" Type="Int32" />
+          <Property Name="claveEstatusLote" Type="Int16" />
+          <Property Name="claveSubLinea" Type="Int16" Nullable="false" />
+          <Property Name="claveSuela" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="fechaTerminadoFabricacion" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="claveTipoNumeracion" Type="Int16" />
+          <Property Name="claveTipoPlantilla" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="totalPares" Type="Int16" Nullable="false" />
+          <Property Name="ultimoProceso" Type="Int16" />
+        </EntityType>
+        <EntityType Name="TipoIncidencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Incidencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="lIncidencia" Relationship="Self.FK_lIncidencias_cTipoIncidencia" FromRole="cTipoIncidencia" ToRole="lIncidencias" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Incidencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoProductoId" Type="Int32" />
+          <Property Name="Lote" Type="Int16" />
+          <Property Name="NombreIncidencia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TotalIncidencias" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="cTipoIncidencia" Relationship="Self.FK_lIncidencias_cTipoIncidencia" FromRole="lIncidencias" ToRole="cTipoIncidencia" />
+          <NavigationProperty Name="rFotoPorlIncidencias" Relationship="Self.FK_rFotoPorlIncidencias_lIncidencias" FromRole="lIncidencias" ToRole="rFotoPorlIncidencias" />
+        </EntityType>
+        <EntityType Name="FotoPorlIncidencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lIncidenciasId" Type="Int32" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="lIncidencia" Relationship="Self.FK_rFotoPorlIncidencias_lIncidencias" FromRole="rFotoPorlIncidencias" ToRole="lIncidencias" />
+        </EntityType>
+        <EntityType Name="uvwLotesMontado">
+          <Key>
+            <PropertyRef Name="Estilo" />
+            <PropertyRef Name="Combinacion" />
+          </Key>
+          <Property Name="Lote" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Estilo" Type="Int32" Nullable="false" />
+          <Property Name="Combinacion" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_lIncidencias_cTipoIncidencia">
+          <End Role="cTipoIncidencia" Type="IncidenciasCoquetaModel.TipoIncidencia" Multiplicity="1" />
+          <End Role="lIncidencias" Type="IncidenciasCoquetaModel.Incidencia" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cTipoIncidencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="lIncidencias">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_rFotoPorlIncidencias_lIncidencias">
+          <End Role="lIncidencias" Type="IncidenciasCoquetaModel.Incidencia" Multiplicity="0..1" />
+          <End Role="rFotoPorlIncidencias" Type="IncidenciasCoquetaModel.FotoPorlIncidencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lIncidencias">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="rFotoPorlIncidencias">
+              <PropertyRef Name="lIncidenciasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModeloDatos" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Lotes" EntityType="IncidenciasCoquetaModel.Lote" />
+          <EntitySet Name="TipoIncidencias" EntityType="IncidenciasCoquetaModel.TipoIncidencia" />
+          <EntitySet Name="Usuarios" EntityType="IncidenciasCoquetaModel.Usuario" />
+          <EntitySet Name="Incidencias" EntityType="IncidenciasCoquetaModel.Incidencia" />
+          <EntitySet Name="FotoPorlIncidencias" EntityType="IncidenciasCoquetaModel.FotoPorlIncidencia" />
+          <EntitySet Name="uvwLotesMontadoes" EntityType="Self.uvwLotesMontado" />
+          <AssociationSet Name="FK_lIncidencias_cTipoIncidencia" Association="Self.FK_lIncidencias_cTipoIncidencia">
+            <End Role="cTipoIncidencia" EntitySet="TipoIncidencias" />
+            <End Role="lIncidencias" EntitySet="Incidencias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_rFotoPorlIncidencias_lIncidencias" Association="Self.FK_rFotoPorlIncidencias_lIncidencias">
+            <End Role="lIncidencias" EntitySet="Incidencias" />
+            <End Role="rFotoPorlIncidencias" EntitySet="FotoPorlIncidencias" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IncidenciasCoquetaModelStoreContainer" CdmEntityContainer="ModeloDatos">
+          <EntitySetMapping Name="Lotes">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.Lote">
+              <MappingFragment StoreEntitySet="cLotes">
+                <ScalarProperty Name="numeroLote" ColumnName="numeroLote" />
+                <ScalarProperty Name="pedido" ColumnName="pedido" />
+                <ScalarProperty Name="fechaAdornoTerminado" ColumnName="fechaAdornoTerminado" />
+                <ScalarProperty Name="semanaEntrega" ColumnName="semanaEntrega" />
+                <ScalarProperty Name="caja" ColumnName="caja" />
+                <ScalarProperty Name="fechaCapturaLote" ColumnName="fechaCapturaLote" />
+                <ScalarProperty Name="colorEntreSuela" ColumnName="colorEntreSuela" />
+                <ScalarProperty Name="colorForro" ColumnName="colorForro" />
+                <ScalarProperty Name="colorPlantilla" ColumnName="colorPlantilla" />
+                <ScalarProperty Name="colorSuela" ColumnName="colorSuela" />
+                <ScalarProperty Name="color1" ColumnName="color1" />
+                <ScalarProperty Name="color2" ColumnName="color2" />
+                <ScalarProperty Name="color3" ColumnName="color3" />
+                <ScalarProperty Name="color4" ColumnName="color4" />
+                <ScalarProperty Name="color5" ColumnName="color5" />
+                <ScalarProperty Name="color6" ColumnName="color6" />
+                <ScalarProperty Name="paresCorrida1" ColumnName="paresCorrida1" />
+                <ScalarProperty Name="paresCorrida2" ColumnName="paresCorrida2" />
+                <ScalarProperty Name="paresCorrida3" ColumnName="paresCorrida3" />
+                <ScalarProperty Name="paresCorrida4" ColumnName="paresCorrida4" />
+                <ScalarProperty Name="paresCorrida5" ColumnName="paresCorrida5" />
+                <ScalarProperty Name="fechaAvanceCorte" ColumnName="fechaAvanceCorte" />
+                <ScalarProperty Name="fechaAvanceMontado" ColumnName="fechaAvanceMontado" />
+                <ScalarProperty Name="claveLinea" ColumnName="claveLinea" />
+                <ScalarProperty Name="fechaEntregaPlaneacion" ColumnName="fechaEntregaPlaneacion" />
+                <ScalarProperty Name="claveEstilo" ColumnName="claveEstilo" />
+                <ScalarProperty Name="fechaEntregaDestinatario" ColumnName="fechaEntregaDestinatario" />
+                <ScalarProperty Name="fechaCancelacionLote" ColumnName="fechaCancelacionLote" />
+                <ScalarProperty Name="claveForro" ColumnName="claveForro" />
+                <ScalarProperty Name="claveHorma" ColumnName="claveHorma" />
+                <ScalarProperty Name="fechaInicioLote" ColumnName="fechaInicioLote" />
+                <ScalarProperty Name="combinacion" ColumnName="combinacion" />
+                <ScalarProperty Name="linea" ColumnName="linea" />
+                <ScalarProperty Name="loteMaquila" ColumnName="loteMaquila" />
+                <ScalarProperty Name="claveMarca" ColumnName="claveMarca" />
+                <ScalarProperty Name="costoMaterial1" ColumnName="costoMaterial1" />
+                <ScalarProperty Name="costoMaterial2" ColumnName="costoMaterial2" />
+                <ScalarProperty Name="costoMaterial3" ColumnName="costoMaterial3" />
+                <ScalarProperty Name="costoMaterial4" ColumnName="costoMaterial4" />
+                <ScalarProperty Name="costoMaterial5" ColumnName="costoMaterial5" />
+                <ScalarProperty Name="fechaMontado" ColumnName="fechaMontado" />
+                <ScalarProperty Name="talla110Bebe" ColumnName="talla110Bebe" />
+                <ScalarProperty Name="talla115Bebe" ColumnName="talla115Bebe" />
+                <ScalarProperty Name="talla120Bebe" ColumnName="talla120Bebe" />
+                <ScalarProperty Name="talla100" ColumnName="talla100" />
+                <ScalarProperty Name="talla105" ColumnName="talla105" />
+                <ScalarProperty Name="talla110" ColumnName="talla110" />
+                <ScalarProperty Name="talla115" ColumnName="talla115" />
+                <ScalarProperty Name="talla120" ColumnName="talla120" />
+                <ScalarProperty Name="talla125" ColumnName="talla125" />
+                <ScalarProperty Name="talla130" ColumnName="talla130" />
+                <ScalarProperty Name="talla135" ColumnName="talla135" />
+                <ScalarProperty Name="talla140" ColumnName="talla140" />
+                <ScalarProperty Name="talla145" ColumnName="talla145" />
+                <ScalarProperty Name="talla150" ColumnName="talla150" />
+                <ScalarProperty Name="talla155" ColumnName="talla155" />
+                <ScalarProperty Name="talla160" ColumnName="talla160" />
+                <ScalarProperty Name="talla165" ColumnName="talla165" />
+                <ScalarProperty Name="talla170" ColumnName="talla170" />
+                <ScalarProperty Name="talla175" ColumnName="talla175" />
+                <ScalarProperty Name="talla180" ColumnName="talla180" />
+                <ScalarProperty Name="talla185" ColumnName="talla185" />
+                <ScalarProperty Name="talla190" ColumnName="talla190" />
+                <ScalarProperty Name="talla195" ColumnName="talla195" />
+                <ScalarProperty Name="talla200" ColumnName="talla200" />
+                <ScalarProperty Name="talla205" ColumnName="talla205" />
+                <ScalarProperty Name="talla210" ColumnName="talla210" />
+                <ScalarProperty Name="talla215" ColumnName="talla215" />
+                <ScalarProperty Name="talla220" ColumnName="talla220" />
+                <ScalarProperty Name="talla225" ColumnName="talla225" />
+                <ScalarProperty Name="talla230" ColumnName="talla230" />
+                <ScalarProperty Name="talla235" ColumnName="talla235" />
+                <ScalarProperty Name="talla240" ColumnName="talla240" />
+                <ScalarProperty Name="talla245" ColumnName="talla245" />
+                <ScalarProperty Name="talla250" ColumnName="talla250" />
+                <ScalarProperty Name="talla255" ColumnName="talla255" />
+                <ScalarProperty Name="talla260" ColumnName="talla260" />
+                <ScalarProperty Name="talla265" ColumnName="talla265" />
+                <ScalarProperty Name="talla270" ColumnName="talla270" />
+                <ScalarProperty Name="talla900" ColumnName="talla900" />
+                <ScalarProperty Name="talla905" ColumnName="talla905" />
+                <ScalarProperty Name="observaciones" ColumnName="observaciones" />
+                <ScalarProperty Name="fechaPespunte" ColumnName="fechaPespunte" />
+                <ScalarProperty Name="fechaPespunteTerminado" ColumnName="fechaPespunteTerminado" />
+                <ScalarProperty Name="clavePiel1" ColumnName="clavePiel1" />
+                <ScalarProperty Name="clavePiel2" ColumnName="clavePiel2" />
+                <ScalarProperty Name="clavePiel3" ColumnName="clavePiel3" />
+                <ScalarProperty Name="clavePiel4" ColumnName="clavePiel4" />
+                <ScalarProperty Name="clavePiel5" ColumnName="clavePiel5" />
+                <ScalarProperty Name="clavePiel6" ColumnName="clavePiel6" />
+                <ScalarProperty Name="fechaPreliminar" ColumnName="fechaPreliminar" />
+                <ScalarProperty Name="proveedorMaquila" ColumnName="proveedorMaquila" />
+                <ScalarProperty Name="referenciaLote" ColumnName="referenciaLote" />
+                <ScalarProperty Name="semanaProgramadaEntregaLote" ColumnName="semanaProgramadaEntregaLote" />
+                <ScalarProperty Name="semanaEntregaLote" ColumnName="semanaEntregaLote" />
+                <ScalarProperty Name="claveEstatusLote" ColumnName="claveEstatusLote" />
+                <ScalarProperty Name="claveSubLinea" ColumnName="claveSubLinea" />
+                <ScalarProperty Name="claveSuela" ColumnName="claveSuela" />
+                <ScalarProperty Name="fechaTerminadoFabricacion" ColumnName="fechaTerminadoFabricacion" />
+                <ScalarProperty Name="claveTipoNumeracion" ColumnName="claveTipoNumeracion" />
+                <ScalarProperty Name="claveTipoPlantilla" ColumnName="claveTipoPlantilla" />
+                <ScalarProperty Name="totalPares" ColumnName="totalPares" />
+                <ScalarProperty Name="ultimoProceso" ColumnName="ultimoProceso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoIncidencias">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.TipoIncidencia">
+              <MappingFragment StoreEntitySet="cTipoIncidencia">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Incidencia" ColumnName="Incidencia" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.Usuario">
+              <MappingFragment StoreEntitySet="cUsuarios">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Incidencias">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.Incidencia">
+              <MappingFragment StoreEntitySet="lIncidencias">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TipoProductoId" ColumnName="TipoProductoId" />
+                <ScalarProperty Name="Lote" ColumnName="Lote" />
+                <ScalarProperty Name="NombreIncidencia" ColumnName="NombreIncidencia" />
+                <ScalarProperty Name="TotalIncidencias" ColumnName="TotalIncidencias" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FotoPorlIncidencias">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.FotoPorlIncidencia">
+              <MappingFragment StoreEntitySet="rFotoPorlIncidencias">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="lIncidenciasId" ColumnName="lIncidenciasId" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="uvwLotesMontadoes">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.uvwLotesMontado">
+              <MappingFragment StoreEntitySet="uvwLotesMontado">
+                <ScalarProperty Name="Lote" ColumnName="Lote" />
+                <ScalarProperty Name="Estilo" ColumnName="Estilo" />
+                <ScalarProperty Name="Combinacion" ColumnName="Combinacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

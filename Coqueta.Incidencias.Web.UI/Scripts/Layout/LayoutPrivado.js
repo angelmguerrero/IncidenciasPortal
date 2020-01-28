@@ -107,5 +107,6 @@ function MostrarTerminosCondicionesUso() {
 }
 
 function MostrarAvisoPrivacidad() {
+    debugger;
     AbrirModal('Aviso de Privacidad', '/Legal/AvisoPrivacidad/', 'GET', 950);
 }

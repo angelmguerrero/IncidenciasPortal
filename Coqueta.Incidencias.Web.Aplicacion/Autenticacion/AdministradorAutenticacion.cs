@@ -8,9 +8,7 @@ using Coqueta.Incidencias.Web.Entidades.Contratos;
 using Coqueta.Incidencias.Web.Datos.Repositorio;
 using Coqueta.Incidencias.Web.Datos.Contexto;
 using Coqueta.Incidencias.Web.Entidades.Dominio.Usuario;
-
-
-
+using System.Web.Security;
 
 
 namespace Coqueta.Incidencias.Web.Aplicacion.Autenticacion
@@ -34,8 +32,16 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Autenticacion
         {
 
             IRepositorioUsuarios repositorioUsuarios = new RepositorioUsuario(cadenaConexion);
-            Persona test = repositorioUsuarios.ObtenerUsuarioAutenticado(nombreUsuario, password);
-            return EnumeradoAutenticacion.AccesoValido;
+            Persona Usuario = repositorioUsuarios.ObtenerUsuarioAutenticado(nombreUsuario, password);
+
+            if (Usuario != null)
+            {
+                FormsAuthentication.SetAuthCookie(Usuario.NombreUsuario, false);
+                return EnumeradoAutenticacion.AccesoValido;
+
+            }
+            else
+                return EnumeradoAutenticacion.CredencialesInvalidas;
         }
         #endregion
     }

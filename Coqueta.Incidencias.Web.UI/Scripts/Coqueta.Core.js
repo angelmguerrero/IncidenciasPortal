@@ -167,6 +167,7 @@ function ErrorAjaxInternal(result) {
 }
 
 function ConfigurarCamposRequeridos() {
+    debugger;
     $('.campoRequerido').each(function () {
         $(this).html($(this).text() + '&nbsp;&nbsp;<i class="fa fa-info-circle text-danger error"></i>');
     });

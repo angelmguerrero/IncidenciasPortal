@@ -10,8 +10,8 @@ namespace Coqueta.Incidencias.Web.Entidades.Modelo
 {
     public partial class Persona
     {
-     [Required(ErrorMessage = "Nombre de usuario es requerido")]   
-     public string NombreUsuario { get; set; }
+        [Required(ErrorMessage = "Nombre de usuario es requerido")]   
+        public string NombreUsuario { get; set; }
 
         [Required(ErrorMessage = "Contraseña es requerida")]
         [DataType(DataType.Password)]

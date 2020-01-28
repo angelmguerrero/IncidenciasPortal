@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Coqueta.Incidencias.Web.Datos.Contexto;
 using Coqueta.Incidencias.Web.Comun.Constantes;
 using Coqueta.Incidencias.Web.Comun.Enumerados;
 using Coqueta.Incidencias.Web.Entidades.Modelo;
 using Coqueta.Incidencias.Web.Aplicacion.Autenticacion;
 using System.Configuration;
+using System.Web.Security;
 
 namespace Coqueta.Incidencias.Web.UI.Controllers
 {
@@ -23,19 +23,50 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
             this.administradorAutenticacion = new AdministradorAutenticacion(cadenaConexion);
         }
 
-        public ActionResult Login()
+
+
+        [HttpGet]
+      
+        public ActionResult Index()
         {
-            return View();
+
+            return this.View();
         }
+
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Persona per)
+        public ActionResult Index(Persona per)
         {
             EnumeradoAutenticacion resultadoAutenticacion = this.administradorAutenticacion.AutenticarUsuario(per.NombreUsuario, per.Password);
 
-            return View("Index");
+            switch (resultadoAutenticacion)
+            {
+                case EnumeradoAutenticacion.AccesoValido:
+                    return this.RedirectToAction("Index", "Inicio");
+                default:
+                    this.ModelState.AddModelError(string.Empty, "Usuario no existe o contraseña es inválida.");
+                    break;
+            }
+            return this.View("Index", per);
         }
+
+
+        [HttpGet]
+        public ActionResult CerrarSesion()
+        {
+
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Acceso");
+
+
+
+          
+        }
+
+
+
+
     }
 }

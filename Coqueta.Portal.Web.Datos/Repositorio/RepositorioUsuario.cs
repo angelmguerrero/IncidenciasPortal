@@ -30,8 +30,6 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
             ModeloDatos objEntity = new ModeloDatos(cadenaConexion);
             List<Usuario> lstUser = new List<Usuario>();
             lstUser = objEntity.Usuarios.ToList();
-
-            
             
             var query = from US in lstUser
             where US.NombreUsuario == nombreUsuario && US.Password == password && Convert.ToBoolean(US.Activo)

@@ -1,0 +1,91 @@
+﻿@using Coqueta.Incidencias.Web.Comun.Enumerados;
+
+
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="PORTAL COQUETA ONLINE">
+    <title>PORTAL COQUETA ONLINE - @ViewBag.Title</title>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/app.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css/LayoutPrivado")
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>$jq = jQuery.noConflict();</script>
+
+    @Scripts.Render("~/Scripts/LayoutPrivado")
+    <script src="~/Scripts/GoogleAnalytics.js"></script>
+</head>
+<body class="layout-fixed">
+    <div class="wrapper">
+        <!-- top navbar-->
+        <header class="topnavbar-wrapper">
+            @Html.Partial("TopNavbar")
+        </header>
+        <!-- sidebar-->
+        @*<aside class="aside">
+            @Html.Partial("Sidebar")
+        </aside>*@
+        <!-- offsidebar-->
+        @*<aside class="offsidebar hide">
+            @Html.Partial("Offsidebar")
+        </aside>*@
+        <!-- Main section-->
+        <section>
+            <!-- Page content-->
+            <div id="divContent" class="content-wrapper ayudaPrincipalPaso5">
+                <div class="content-heading">
+                    <span class="text-info"><i class="fa fa-caret-right"></i>&nbsp;&nbsp;@ViewBag.Title</span>
+                    &nbsp;
+                    <a href="/Contenido/Faq"><i class="fa fa-question-circle text-info"></i></a>
+                    <a href="/Contenido/Versiones"><i class="fa fa-history  text-info"></i></a>
+                </div>
+                @RenderBody()
+                <a href="#" class="scrolltop"><i class="fa fa-chevron-circle-up text-danger fa-3x"></i></a>
+            </div>
+        </section>
+        <!-- Page footer-->
+        <footer>
+            @Html.Partial("Footer")
+        </footer>
+    </div>
+    <div class="modal fade" id="divModal" name="divModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="btnCloseModal" name="btnCloseModal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-close text-white" aria-hidden="true"></span></button>
+                    <h4 class="modal-title"><label id="titulo"></label></h4>
+                </div>
+                <div class="modal-body">
+                    <div id='contenidoModal'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="divWait" name="divWait" class="loader-please-wait">
+        <div class="loader-content">
+            <h4 class="text-info text-thin mt0">Cargando...</h4>
+            <img src="~/Content/img/loader.gif" width="64" />
+        </div>
+    </div>
+    
+    <script>
+    
+        var segundosTimeout = '@System.Web.Security.FormsAuthentication.Timeout.TotalSeconds';
+        $(document).ready(function () {
+            tl.pg.init();
+            var nav = '#ulMenu';
+            $(nav).css('overflow-x', 'hidden');
+            $(nav).css('overflow-y', 'auto');
+            $(nav).css('height', $('.sidebar').height() +'px');
+        });
+
+        // ZENDESK
+        /*<![CDATA[*/window.zEmbed || function (e, t) { var n, o, d, i, s, a = [], r = document.createElement("iframe"); window.zEmbed = function () { a.push(arguments) }, window.zE = window.zE || window.zEmbed, r.src = "javascript:false", r.title = "", r.role = "presentation", (r.frameElement || r).style.cssText = "display: none", d = document.getElementsByTagName("script"), d = d[d.length - 1], d.parentNode.insertBefore(r, d), i = r.contentWindow, s = i.document; try { o = s } catch (e) { n = document.domain, r.src = 'javascript:var d=document.open();d.domain="' + n + '";void(0);', o = s } o.open()._l = function () { var e = this.createElement("script"); n && (this.domain = n), e.id = "js-iframe-async", e.src = "https://assets.zendesk.com/embeddable_framework/main.js", this.t = +new Date, this.zendeskHost = "coqueta.zendesk.com", this.zEQueue = a, this.body.appendChild(e) }, o.write('<body onload="document._l();">'), o.close() }();
+        /*]]>*/
+    </script>
+</body>
+</html>

@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Contratos\IRepositorioUsuarios.cs" />
     <Compile Include="Dominio\Usuario\Persona.cs" />
-    <Compile Include="Modelo\PersonaParcial.cs" />
+    <Compile Include="Modelo\Usuario\PersonaParcial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

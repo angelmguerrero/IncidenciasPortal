@@ -1,0 +1,46 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Open Sans:400,600,700italic,900,400italic,300");
+html { min-height: 100%; position: relative; }
+body { background-color:#fff !important; font-family: 'Open Sans', Arial; font-size: 14px;}
+h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial; }
+h1 {font-size: 24px;}
+h2 {font-size: 22px;}
+h3 {font-size: 20px;}
+h4 {font-size: 18px;}
+#divContent { padding:3% 0px 2% 0px;}
+#divLogin {
+    border-radius: 40px; padding: 40px 50px 20px 50px;
+    background-image: -webkit-linear-gradient(top, #51c6ea 0%, #092B59 100%);
+    background-image: -o-linear-gradient(top, #51c6ea 0%, #092B59 100% );
+    background-image: linear-gradient(to bottom, #51c6ea 0%, #092B59 100%);
+}
+#divLogin a { color: #EB8620; }
+#divFooter { background-color: transparent;
+    background-image: -webkit-linear-gradient(left, #092B59 0%, #51c6ea 100%);
+    background-image: -o-linear-gradient(left, #092B59 0%, #51c6ea 100%);
+    background-image: linear-gradient(to right, #092B59 0%, #51c6ea 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF23B7E5', endColorstr='#FF51C6EA', GradientType=1);
+    border-top: 10px solid #EB8620 !important; padding: 1% 0px; font-size:12px; position: absolute; bottom: 0;}
+#divFooter, #divFooter a, #divFooter i { color: #fff !important; }
+.version { font-size: 10px; }
+.captcha { border:1px dotted gray; margin-bottom:2px; }
+input[type="text"], input[type="password"] { font-size: 15px; height: auto; padding: 6px 8px; }
+.space { margin-bottom: 10px; }
+.center { text-align: center !important; }
+.right { text-align: right !important; }
+.error { color: red !important; }
+.warning { color: yellow !important; }
+.underline { text-decoration: underline !important; }
+.btn-primary { background-color: #092B59 !important; }
+.margin-0 { margin: 0px; }
+.text-white { color: #FFF; }
+#divBanner img { border-radius: 40px; border:2px solid #E3E3E1; }
+#divLogin img { width: 70%; }
+@media (max-width: 3440px) { 
+    #divBanner img { display: normal;}
+    #divFooter { position: absolute !important; bottom: 0 !important; }   
+}
+@media (max-width: 991px) { 
+    #divBanner img { display:none; }
+    #divFooter { position: static !important; } 
+}   

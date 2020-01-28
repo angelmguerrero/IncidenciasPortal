@@ -1,0 +1,80 @@
+﻿@using Coqueta.Portal.Web.Aplicacion.Contexto;
+@using Coqueta.Portal.Web.Entidades.Dominio.Autenticacion;
+@using Coqueta.Core.Comun.Constantes;
+@{ UsuarioAutenticado usuarioAutenticado = ContextoSesion.Usuario; }
+<!-- START Off Sidebar (right)-->
+<nav>
+    <div role="tabpanel">
+        <!-- Nav tabs-->
+        <ul role="tablist" class="nav nav-tabs nav-justified">
+            <li role="presentation" class="active">
+                <a href="#app-roles" aria-controls="app-roles" role="tab" data-toggle="tab">
+                    <em class="icon-people fa-lg"></em>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#app-perfilusuario" aria-controls="app-perfilusuario" role="tab" data-toggle="tab">
+                    <em class="icon-user fa-lg"></em>
+                </a>
+            </li>
+        </ul>
+        <!-- Tab panes-->
+        <div class="tab-content">
+            <div id="app-roles" role="tabpanel" class="tab-pane fade in active">
+                <h4 class="text-center text-thin">Roles Asignados</h4>
+                <ul class="nav">
+                    <li class="p">
+                        <div>
+                            @{
+                                foreach (RolUsuarioAutenticado rol in usuarioAutenticado.Roles)
+                                {
+                                    string seleccionado = string.Empty;
+                                    if (rol.Id == usuarioAutenticado.RolSeleccionado.Id) { seleccionado = "checked=\"checked\""; }
+                                    <div class="col-lg-12">
+                                        <label class="radio-inline c-radio">
+                                            <input id="radTipoUsuarioCoqueta" type="radio" name="radRol" value="@rol.Id" @seleccionado>
+                                            <span class="fa fa-circle"></span>@rol.Nombre.ToUpper()
+                                        </label>
+                                        <hr />
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="text-center">
+                            <button id="btnCambiarRol" type="button" class="btn btn-info">CAMBIAR ROL&nbsp;&nbsp;<i class="fa fa-lg fa-random"></i></button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="app-perfilusuario" role="tabpanel" class="tab-pane fade">
+                <h4 class="text-center text-thin">Perfil de Usuario</h4>
+                <ul class="nav text-center">
+                    <li class="p">
+                        <div class="user-block-picture">
+                            <div class="user-block-status">
+                                <img src="/Content/img/Usuario.png" width="60" height="60" class="img-thumbnail img-circle">
+                            </div>
+                        </div>
+                        <div class="text-bold">@usuarioAutenticado.NombreUsuario</div>
+                        <div class="text-bold">@usuarioAutenticado.NombreCompleto</div>
+                        @{ if (usuarioAutenticado.Administrador)
+                            {<div class="text-bold">(Administrador)</div> }}
+                        <div><i class="fa fa-envelope"></i>&nbsp;&nbsp;@usuarioAutenticado.CorreoElectronico</div>
+                        <div><i class="fa fa-phone"></i>&nbsp;&nbsp;@string.Format(ConstanteFormato.FormatoTelefono, long.Parse(usuarioAutenticado.TelefonoMovil))</div>
+                    </li>
+                    <li class="p">
+                        <div><small>UBICACIÓN PREDETERMINADA</small></div>
+                        <div><small>@usuarioAutenticado.CadenaMatrizSucursalPredeterminada.Sucursal.Clave - @usuarioAutenticado.CadenaMatrizSucursalPredeterminada.Sucursal.Nombre</small></div>
+                    </li>
+                    <li class="p">
+                        <a href="#" onclick="CambiarPassword(false);">
+                            <strong>Cambiar Password</strong>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</nav>
+<!-- END Off Sidebar (right)-->

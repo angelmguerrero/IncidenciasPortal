@@ -1,0 +1,82 @@
+﻿@using Coqueta.Incidencias.Web.Comun.Constantes;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COQUETA INCIDENCIAS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="favicon.ico" rel="shortcut icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    @Styles.Render("~/Content/css/LayoutPublico")
+    @Scripts.Render("~/Scripts/LayoutPublico")
+    <script src="~/Scripts/GoogleAnalytics.js"></script>
+</head>
+<body>
+    <div id="divContent" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        @RenderBody()
+    </div>
+
+    <div id="divFooter" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-offset-1 col-lg-10">
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-xs-1">
+                    <img src="/Content/img/Logo.png" class="img-responsive">
+                </div>
+                <div class="col-lg-7 col-md-7 col-xs-12">
+                    <div>
+                        &copy; 2018 CALZADO COQUETA SA DE CV&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" onclick="MostrarAvisoPrivacidad();" class="text-nowrap">Aviso de Privacidad</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#" onclick="MostrarTerminosCondicionesUso();" class="text-nowrap">Términos y Condiciones de Uso</a>
+                    </div>
+                    <div>
+                        <span class="text-nowrap"><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;01 (800) 475 2600</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="text-nowrap">01 (800) 822 0555</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="text-nowrap">01 (477) 710 8400</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="https://www.coquetayaudaz.com.mx" class="underline" target="_blank">www.coquetayaudaz.com.mx</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-xs-6 center">
+                    <div class="version">
+                        OPTIMIZADO PARA:
+                    </div>
+                    <div>
+                        <i class="fa fa-chrome fa-2x" title="Google Chrome"></i>
+                        <i class="fa fa-firefox fa-2x" title="Mozilla Firefox"></i>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-xs-6 right">
+                    <div>
+                        <a href="https://www.facebook.com/coquetayaudaz" target="_blank"><i class="fa fa-facebook-square fa-2x text-info" title="Facebook"></i></a>
+                        <a href="https://www.youtube.com/user/CalzadoCoquetayAudaz" target="_blank"><i class="fa fa-youtube-square fa-2x text-info" title="Youtube"></i></a>
+                        <a href="https://twitter.com/calzadocoqueta" target="_blank"><i class="fa fa-twitter-square fa-2x text-info" title="Twitter"></i></a>
+                        <a href="https://www.instagram.com/coquetayaudaz" target="_blank"><i class="fa fa-instagram fa-2x text-info" title="Instagram"></i></a>
+                    </div>
+                    <div class="version">
+                        COQUETA ONLINE v.@ConstanteVersion.VersionAplicacion
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="divModal" name="divModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="btnCloseModal" name="btnCloseModal" type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="fa fa-close text-white" aria-hidden="true"></span></button>
+                    <h4 class="modal-title"><label id="titulo"></label></h4>
+                </div>
+                <div class="modal-body">
+                    <div id='contenidoModal'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            ConfigurarCamposRequeridos();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+﻿@using Coqueta.Portal.Web.Comun.Enumerados;
+@using Coqueta.Portal.Web.Aplicacion.Contexto;
+<div class="aside-inner">
+    <nav data-sidebar-anyclick-close="" class="sidebar">
+        <ul id="ulMenu" class="nav ayudaPrincipalPaso1">
+            <li id="Inicio" class="@Html.MenuActivo(string.Empty, "Inicio", "Index")">
+                <a href="/Inicio/Index" class="titulo" title="Inicio">
+                    <i class="icon-home"></i>
+                    <span>Inicio</span>
+                </a>
+            </li>
+
+            <li id="Informacion" class="@Html.MenuActivo(string.Format("{0},{1},{2},{3}", EnumeradoPermiso.P0005, EnumeradoPermiso.P0006, EnumeradoPermiso.P0007, EnumeradoPermiso.P0008))">
+                <a href="#ulInformacion" class="titulo" data-toggle="collapse" title="Mi Información">
+                    <i class="icon-chart"></i>
+                    <span>Mi Información</span>
+                    <i class="icon-arrow-right icon"></i>
+                </a>
+                <ul id="ulInformacion" class="nav sidebar-subnav collapse">
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0006.ToString(), "ConsultaPedido", "Index")">
+                        <a href="/ConsultaPedido/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Consulta de Pedidos</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0008.ToString(), "EstadoCuenta", "Index")">
+                        <a href="/EstadoCuenta/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Estado de Cuenta</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0007.ToString(), "Estadistico", "Index")">
+                        <a href="/Estadistico/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Reportes Estadísticos</span>
+                        </a>
+                    </li>
+
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0007.ToString(), "NivelSurtido", "Index")">
+                        <a href="/NivelSurtido/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Consulta FillRate</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0005.ToString(), "CapturaRapida", "Index")">
+                        <a href="/CapturaRapida/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Plantillas de Captura</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(string.Empty, "CalendarioEvento", "Calendario")">
+                        <a href="/CalendarioEvento/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Calendario</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="ProductoDisponible" class="@Html.MenuActivo(EnumeradoPermiso.P0004.ToString(), "Catalogo", "Disponible")">
+                <a href="/Catalogo/Disponible" class="titulo" title="Servicio Express">
+                    <i class="icon-handbag"></i>
+                    <span>Servicio Express<br /><strong style="font-size: 10px;">(Captura de Producto Disponible)</strong></span>
+
+                </a>
+            </li>
+
+            <li id="CatalogoProductos" class="@Html.MenuActivo(EnumeradoPermiso.P0004.ToString())">
+                <a href="#ulCatalogo" class="titulo" data-toggle="collapse" title="Catálogo de Productos">
+                    <i class="icon-briefcase"></i>
+                    <span>Catálogo de Productos</span>
+                    <i class="icon-arrow-right icon"></i>
+                </a>
+                <ul id="ulCatalogo" class="nav sidebar-subnav collapse">
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0004.ToString(), "Catalogo", "Vigente")">
+                        <a href="/Catalogo/Vigente">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Catálogo Vigente</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0004.ToString(), "Catalogo", "Trac")">
+                        <a href="/Catalogo/Trac">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Catálogo TRAC</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="Pedidos" class="@Html.MenuActivo(EnumeradoPermiso.P0005.ToString())">
+                <a href="#ulPedidos" class="titulo" data-toggle="collapse" title="Captura de Pedidos">
+                    <i class="icon-basket"></i>
+                    <span>Captura de Pedidos</span>
+                    <i class="icon-arrow-right icon"></i>
+                </a>
+                <ul id="ulPedidos" class="nav sidebar-subnav collapse">
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0005.ToString(), "Pedido", "Programado")">
+                        <a href="#" class="lnkPedido" onclick="ValidarPedidoExistente(2)">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Pedido a Programar</span>
+                        </a>
+                    </li>
+                    @if (ContextoSesion.Usuario.EsTrac || ContextoSesion.Usuario.TipoUsuario == Coqueta.Portal.Web.Comun.Enumerados.EnumeradoTipoUsuario.AdministradorSistema)
+                    {
+                        <li class="@Html.MenuActivo(EnumeradoPermiso.P0005.ToString(), "Pedido", "TRAC")">
+                            <a href="#" class="lnkPedido" onclick="ValidarPedidoExistente(3)">
+                                <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Pedido TRAC</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </li>
+
+            @if (ContextoSesion.Usuario.TipoUsuario == Coqueta.Portal.Web.Comun.Enumerados.EnumeradoTipoUsuario.AdministradorSistema || (ContextoSesion.Usuario.EsTrac))
+            {
+                <li id="AdministracionTrac" class="@Html.MenuActivo(string.Format("{0},{1}", EnumeradoPermiso.P0013, EnumeradoPermiso.P0014))">
+                    <a href="#ulAdministracionTrac" class="titulo" data-toggle="collapse" title="Administración TRAC">
+                        <i class="icon-settings"></i>
+                        <span>Administración TRAC</span>
+                        <i class="icon-arrow-right icon"></i>
+                    </a>
+                    <ul id="ulAdministracionTrac" class="nav sidebar-subnav collapse">
+                        <li class="@Html.MenuActivo(EnumeradoPermiso.P0013.ToString(), "AdministracionTrac", "PlantillaTRAC")">
+                            <a href="/AdministracionTrac/PlantillaTRAC">
+                                <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Mi Plantilla TRAC</span>
+                            </a>
+                        </li>
+                        <li class="@Html.MenuActivo(EnumeradoPermiso.P0014.ToString(), "AdministracionTrac", "AdminstradorPlantillaTRAC")">
+                            <a href="/AdministracionTrac/AdminstradorPlantillaTRAC">
+                                <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Administración de<br />Plantillas TRAC</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            }
+
+            <li id="AdministracionCoqueta" class="@Html.MenuActivo(string.Format("{0},{1}", EnumeradoPermiso.P0010, EnumeradoPermiso.P0001))">
+                <a href="#ulAdministracionCoqueta" class="titulo" data-toggle="collapse" title="Administración Coqueta">
+                    <i class="icon-settings"></i>
+                    <span>Administración Coqueta</span>
+                    <i class="icon-arrow-right icon"></i>
+                </a>
+                <ul id="ulAdministracionCoqueta" class="nav sidebar-subnav collapse">
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0010.ToString(), "Promocion", "Index")">
+                        <a href="/Promocion/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Promociones</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0001.ToString(), "Afiliacion", "AutorizarSolicitud")">
+                        <a href="/Afiliacion/AutorizarSolicitud">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Solicitudes de Afiliación</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(string.Empty, "CalendarioEvento", "Index")">
+                        <a href="/CalendarioEvento/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Calendario</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="Seguridad" class="@Html.MenuActivo(string.Format("{0},{1}", EnumeradoPermiso.P0002, EnumeradoPermiso.Administrador))">
+                <a href="#ulSeguridad" class="titulo" data-toggle="collapse" title="Roles y Usuarios">
+                    <i class="icon-user"></i>
+                    <span>Roles y Usuarios</span>
+                    <i class="icon-arrow-right icon"></i>
+                </a>
+                <ul id="ulSeguridad" class="nav sidebar-subnav collapse">
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0002.ToString(), "Seguridad", "Roles")">
+                        <a href="/Seguridad/Roles">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Roles y Permisos</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.Administrador.ToString(), "Seguridad", "Usuarios")">
+                        <a href="/Seguridad/Usuarios">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Usuarios y Contraseñas</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="Sistema" class="@Html.MenuActivo(EnumeradoPermiso.P0012.ToString())">
+                <a href="#ulSistema" class="titulo" data-toggle="collapse" title="Sistema">
+                    <i class="icon-organization"></i>
+                    <span>Sistema</span>
+                    <i class="icon-arrow-right icon"></i>
+                </a>
+                <ul id="ulSistema" class="nav sidebar-subnav collapse">
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0012.ToString(), "Bitacora", "Eventos")">
+                        <a href="/Bitacora/Eventos">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Bitácora de Eventos</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0012.ToString(), "Bitacora", "Tiempos")">
+                        <a href="/Bitacora/Tiempos">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Bitácora de Tiempos</span>
+                        </a>
+                    </li>
+                    <li class="@Html.MenuActivo(EnumeradoPermiso.P0012.ToString(), "ConfiguracionSistema", "Index")">
+                        <a href="/ConfiguracionSistema/Index">
+                            <i class="fa fa-angle-right"></i>&nbsp;&nbsp;<span>Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="AdministracionEncuesta" class="@Html.MenuActivo(EnumeradoPermiso.P0018.ToString(), "Tendencia", "Inicio")">
+                @{string rutaId = "/Tendencia/Inicio/" + ContextoSesion.Usuario.Id;}
+                <a href="@rutaId" class="titulo" title="Servicio Express">
+                    <i class="icon-note"></i>
+                    <span>Administrador Encuestas</span>
+                </a>
+            </li>
+            <li id="ReportePedidos" clas="@Html.MenuActivo(EnumeradoPermiso.P0019.ToString(),"ReportePedidos","Index" )">
+                <a href="/ReportePedidos/Index" class="titulo">
+                    <i class="icon-book-open"></i>
+                    <span>Reporte Pedidos</span>
+                </a>
+            </li>
+
+        </ul>
+        <!-- END sidebar nav-->
+    </nav>
+</div>
+<!-- END Sidebar (left)-->

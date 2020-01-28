@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="IncidenciasCoquetaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="IncidenciasCoquetaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cLotes">
           <Key>
             <PropertyRef Name="numeroLote" />
@@ -149,7 +149,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="lIncidenciasId" Type="int" />
-          <Property Name="Foto" Type="varbinary(max)" />
+          <Property Name="Foto" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -210,8 +210,7 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             <End Role="rFotoPorlIncidencias" EntitySet="rFotoPorlIncidencias" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IncidenciasCoquetaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -354,18 +353,9 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Property Name="TotalIncidencias" Type="Int32" />
           <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="cTipoIncidencia" Relationship="Self.FK_lIncidencias_cTipoIncidencia" FromRole="lIncidencias" ToRole="cTipoIncidencia" />
-          <NavigationProperty Name="rFotoPorlIncidencias" Relationship="Self.FK_rFotoPorlIncidencias_lIncidencias" FromRole="lIncidencias" ToRole="rFotoPorlIncidencias" />
+          <NavigationProperty Name="rFotoPorlIncidencias" Relationship="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias" FromRole="Incidencia" ToRole="rFotoPorlIncidencia" />
         </EntityType>
-        <EntityType Name="FotoPorlIncidencia">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="lIncidenciasId" Type="Int32" />
-          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="lIncidencia" Relationship="Self.FK_rFotoPorlIncidencias_lIncidencias" FromRole="rFotoPorlIncidencias" ToRole="lIncidencias" />
-        </EntityType>
-        <EntityType Name="uvwLotesMontado">
+        <EntityType Name="LotesMontado">
           <Key>
             <PropertyRef Name="Estilo" />
             <PropertyRef Name="Combinacion" />
@@ -387,34 +377,43 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_rFotoPorlIncidencias_lIncidencias">
-          <End Role="lIncidencias" Type="IncidenciasCoquetaModel.Incidencia" Multiplicity="0..1" />
-          <End Role="rFotoPorlIncidencias" Type="IncidenciasCoquetaModel.FotoPorlIncidencia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="lIncidencias">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="rFotoPorlIncidencias">
-              <PropertyRef Name="lIncidenciasId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="ModeloDatos" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Lotes" EntityType="IncidenciasCoquetaModel.Lote" />
           <EntitySet Name="TipoIncidencias" EntityType="IncidenciasCoquetaModel.TipoIncidencia" />
           <EntitySet Name="Usuarios" EntityType="IncidenciasCoquetaModel.Usuario" />
           <EntitySet Name="Incidencias" EntityType="IncidenciasCoquetaModel.Incidencia" />
-          <EntitySet Name="FotoPorlIncidencias" EntityType="IncidenciasCoquetaModel.FotoPorlIncidencia" />
-          <EntitySet Name="uvwLotesMontadoes" EntityType="Self.uvwLotesMontado" />
+          <EntitySet Name="LotesMontadoes" EntityType="IncidenciasCoquetaModel.LotesMontado" />
           <AssociationSet Name="FK_lIncidencias_cTipoIncidencia" Association="Self.FK_lIncidencias_cTipoIncidencia">
             <End Role="cTipoIncidencia" EntitySet="TipoIncidencias" />
             <End Role="lIncidencias" EntitySet="Incidencias" />
           </AssociationSet>
-          <AssociationSet Name="FK_rFotoPorlIncidencias_lIncidencias" Association="Self.FK_rFotoPorlIncidencias_lIncidencias">
-            <End Role="lIncidencias" EntitySet="Incidencias" />
-            <End Role="rFotoPorlIncidencias" EntitySet="FotoPorlIncidencias" />
+          <EntitySet Name="rFotoPorlIncidencias" EntityType="IncidenciasCoquetaModel.rFotoPorlIncidencia" />
+          <AssociationSet Name="FK_rFotoPorlIncidencias_lIncidencias" Association="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias">
+            <End Role="Incidencia" EntitySet="Incidencias" />
+            <End Role="rFotoPorlIncidencia" EntitySet="rFotoPorlIncidencias" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="rFotoPorlIncidencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lIncidenciasId" Type="Int32" />
+          <Property Name="Foto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="lIncidencia" Relationship="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias" FromRole="rFotoPorlIncidencia" ToRole="Incidencia" />
+        </EntityType>
+        <Association Name="FK_rFotoPorlIncidencias_lIncidencias">
+          <End Type="IncidenciasCoquetaModel.Incidencia" Role="Incidencia" Multiplicity="0..1" />
+          <End Type="IncidenciasCoquetaModel.rFotoPorlIncidencia" Role="rFotoPorlIncidencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Incidencia">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="rFotoPorlIncidencia">
+              <PropertyRef Name="lIncidenciasId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -562,22 +561,22 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FotoPorlIncidencias">
-            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.FotoPorlIncidencia">
-              <MappingFragment StoreEntitySet="rFotoPorlIncidencias">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="lIncidenciasId" ColumnName="lIncidenciasId" />
-                <ScalarProperty Name="Foto" ColumnName="Foto" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="uvwLotesMontadoes">
-            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.uvwLotesMontado">
+          <EntitySetMapping Name="LotesMontadoes">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.LotesMontado">
               <MappingFragment StoreEntitySet="uvwLotesMontado">
                 <ScalarProperty Name="Lote" ColumnName="Lote" />
                 <ScalarProperty Name="Estilo" ColumnName="Estilo" />
                 <ScalarProperty Name="Combinacion" ColumnName="Combinacion" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rFotoPorlIncidencias">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.rFotoPorlIncidencia">
+              <MappingFragment StoreEntitySet="rFotoPorlIncidencias">
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="lIncidenciasId" ColumnName="lIncidenciasId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

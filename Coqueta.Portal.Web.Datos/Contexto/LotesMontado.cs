@@ -7,12 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Coqueta.Portal.Web.Datos.Contexto
+namespace Coqueta.Incidencias.Web.Datos.Contexto
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class uvwLotesMontado
+    public partial class LotesMontado
     {
         public string Lote { get; set; }
         public int Estilo { get; set; }

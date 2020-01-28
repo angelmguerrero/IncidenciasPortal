@@ -49,9 +49,9 @@
       <Project>{4eb723af-4355-42a9-97e3-d20fd7a4481e}</Project>
       <Name>Coqueta.Incidencias.Web.Comun</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Coqueta.Portal.Web.Datos\Coqueta.Portal.Web.Datos.csproj">
+    <ProjectReference Include="..\Coqueta.Portal.Web.Datos\Coqueta.Incidencias.Web.Datos.csproj">
       <Project>{b47d79c8-4a64-465e-996b-196c4cdc2746}</Project>
-      <Name>Coqueta.Portal.Web.Datos</Name>
+      <Name>Coqueta.Incidencias.Web.Datos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Coqueta.Portal.Web.Entidades\Coqueta.Incidencias.Web.Entidades.csproj">
       <Project>{d34e57ae-b6af-4dec-b616-6a71bb4a6e47}</Project>

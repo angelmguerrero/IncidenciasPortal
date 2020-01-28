@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Coqueta.Portal.Web.Datos.Contexto
+namespace Coqueta.Incidencias.Web.Datos.Contexto
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class FotoPorlIncidencia
+    public partial class rFotoPorlIncidencia
     {
         public int Id { get; set; }
         public Nullable<int> lIncidenciasId { get; set; }
-        public byte[] Foto { get; set; }
+        public string Foto { get; set; }
     
         public virtual Incidencia lIncidencia { get; set; }
     }

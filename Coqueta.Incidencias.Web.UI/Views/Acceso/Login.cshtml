@@ -1,0 +1,60 @@
+﻿@model Coqueta.Incidencias.Web.Entidades.Dominio.Usuario.Persona
+
+@{
+    ViewBag.Title = "Login";
+}
+<div class="col-lg-12 col-md-12 col-xs-12">
+    <div id="divBanner" class="col-lg-offset-1 col-md-offset-1 col-lg-7 col-md-6">
+        <img class="img-responsive pull-right" src="~/Banners/BannerLogin.jpg" />
+    </div>
+    <div id="divLogin" class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        @using (Html.BeginForm())
+        {
+            <center>
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <div class="input-group">
+                        <img src="~/Content/img/Logo.png" class="img-responsive">
+                        <h2 class="margin-0 text-white"><strong>Coqueta Online</strong></h2>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user fa-lg"></i>
+                        </span>
+                        @Html.TextBoxFor(p => p.NombreUsuario, new { @class = "col-lg-12 col-md-12 col-xs-12", placeholder = "Número de usuario", maxlength = "30" })
+                    </div>
+                    <div class="text-left">
+                        @Html.ValidationMessageFor(p => p.NombreUsuario, string.Empty, new { @class = "warning" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-lock fa-lg"></i>
+                        </span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "col-lg-12 col-md-12 col-xs-12", placeholder = "Contraseña", maxlength = "30" })
+                    </div>
+                    <div class="text-left">
+                        @Html.ValidationMessageFor(m => m.Password, string.Empty, new { @class = "warning" })
+                    </div>
+                </div>
+                <div class="form-group text-left">
+                    @Html.ValidationSummary(true, string.Empty, new { @class = "warning" })
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">INICIAR SESI&Oacute;N&nbsp;&nbsp;<i class="fa fa-lg fa-arrow-circle-right"></i></button>
+                </div>
+                <div class="form-group">
+                    <div class="space">
+                        <span class="text-white">¿Olvidaste tu contraseña?</span><br /><a href="/Acceso/RecuperarCodigo"><b>Recuperar contraseña</b></a>
+                    </div>
+                    <div>
+                        <span class="text-white">¿Eres cliente y quieres ingresar?</span><br /><a href="/Afiliacion/SolicitarAfiliacion"><b>Regístrate aquí</b></a>
+                    </div>
+                </div>
+            </center>
+        }
+    </div>
+</div>

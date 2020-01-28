@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Coqueta.Portal.Web.Datos.Contexto
+namespace Coqueta.Incidencias.Web.Datos.Contexto
 {
     using System;
     using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace Coqueta.Portal.Web.Datos.Contexto
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Incidencia()
         {
-            this.rFotoPorlIncidencias = new HashSet<FotoPorlIncidencia>();
+            this.rFotoPorlIncidencias = new HashSet<rFotoPorlIncidencia>();
         }
     
         public int Id { get; set; }
@@ -29,6 +29,6 @@ namespace Coqueta.Portal.Web.Datos.Contexto
     
         public virtual TipoIncidencia cTipoIncidencia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FotoPorlIncidencia> rFotoPorlIncidencias { get; set; }
+        public virtual ICollection<rFotoPorlIncidencia> rFotoPorlIncidencias { get; set; }
     }
 }

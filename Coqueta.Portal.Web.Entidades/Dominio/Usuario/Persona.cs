@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Coqueta.Portal.Web.Entidades.Dominio.Usuario
+namespace Coqueta.Incidencias.Web.Entidades.Dominio.Usuario
 {
     
     public class Persona

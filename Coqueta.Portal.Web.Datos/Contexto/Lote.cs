@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Coqueta.Portal.Web.Datos.Contexto
+namespace Coqueta.Incidencias.Web.Datos.Contexto
 {
     using System;
     using System.Collections.Generic;

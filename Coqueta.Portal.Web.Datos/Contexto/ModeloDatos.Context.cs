@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Coqueta.Portal.Web.Datos.Contexto
+namespace Coqueta.Incidencias.Web.Datos.Contexto
 {
     using System;
     using System.Data.Entity;
@@ -29,7 +29,7 @@ namespace Coqueta.Portal.Web.Datos.Contexto
         public virtual DbSet<TipoIncidencia> TipoIncidencias { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Incidencia> Incidencias { get; set; }
-        public virtual DbSet<FotoPorlIncidencia> FotoPorlIncidencias { get; set; }
-        public virtual DbSet<uvwLotesMontado> uvwLotesMontadoes { get; set; }
+        public virtual DbSet<LotesMontado> LotesMontadoes { get; set; }
+        public virtual DbSet<rFotoPorlIncidencia> rFotoPorlIncidencias { get; set; }
     }
 }

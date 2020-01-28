@@ -8,8 +8,8 @@
     <ProjectGuid>{B47D79C8-4A64-465E-996B-196C4CDC2746}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Coqueta.Portal.Web.Datos</RootNamespace>
-    <AssemblyName>Coqueta.Portal.Web.Datos</AssemblyName>
+    <RootNamespace>Coqueta.Incidencias.Web.Datos</RootNamespace>
+    <AssemblyName>Coqueta.Incidencias.Web.Datos</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -54,13 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contexto\FotoPorlIncidencia.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Contexto\ContextoDatos.cs" />
     <Compile Include="Contexto\Incidencia.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Lote.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexto\LotesMontado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\ModeloDatos.Context.cs">
@@ -78,13 +79,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Contexto\rFotoPorlIncidencia.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Contexto\TipoIncidencia.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Contexto\Usuario.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Contexto\uvwLotesMontado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,11 +102,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
     <EntityDeploy Include="Contexto\ModeloDatos.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModeloDatos.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Contexto\ModeloDatos.edmx.diagram">
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </None>

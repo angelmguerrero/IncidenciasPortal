@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using Coqueta.Incidencias.Web.Aplicacion.Autenticacion;
 using Coqueta.Incidencias.Web.Comun.Constantes;
 using Coqueta.Incidencias.Web.Comun.Enumerados;
 using Coqueta.Incidencias.Web.Entidades.Modelo;
-using Coqueta.Incidencias.Web.Aplicacion.Autenticacion;
 using System.Configuration;
+using System.Web.Mvc;
 using System.Web.Security;
 
 namespace Coqueta.Incidencias.Web.UI.Controllers

@@ -66,7 +66,27 @@ function CallbackObtenerNotificacionBolsaCompra(data) {
         ColocarFoco();
 }
 
-
+function obtenerUrlTipoPedido(tipoPedido) {
+    
+    switch (tipoPedido) {
+        case 1:
+            {             
+                return "/Pedido/Disponible";
+            }
+        case 2:
+            {             
+                return "/Pedido/Programado";
+            }
+        case 3:
+            {                
+                return "/Pedido/TRAC";
+            }
+        default:
+            {
+                return null;
+            }
+    }
+}
 
 function ValidarPedidoExistente(tipoPedido) {
     AjaxCallJson('/Pedido/ValidarPedidoExistente', { tipoPedido: tipoPedido }, function (data) { CallbackValidarPedidoExistente(data, tipoPedido); });
@@ -107,6 +127,5 @@ function MostrarTerminosCondicionesUso() {
 }
 
 function MostrarAvisoPrivacidad() {
-    debugger;
     AbrirModal('Aviso de Privacidad', '/Legal/AvisoPrivacidad/', 'GET', 950);
 }

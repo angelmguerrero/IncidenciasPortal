@@ -66,9 +66,6 @@ namespace Coqueta.Incidencias.Web.UI
                 "~/Componentes/pageguide/pageguide.min.css",
                 "~/Componentes/jAlert/jAlert.css"));
 
-
-
-
             bundles.Add(new StyleBundle("~/Scripts/LayoutPrivado").Include(
                 "~/Componentes/modernizr/modernizr.custom.js",
                 "~/Componentes/matchMedia/matchMedia.js",
@@ -93,11 +90,6 @@ namespace Coqueta.Incidencias.Web.UI
                 "~/Componentes/jTimeout/jTimeout.min.js",
                 "~/Scripts/Coqueta.Core.js",
                 "~/Scripts/Layout/LayoutPrivado.js"));
-
-
-
-
-
             #endregion
 
 

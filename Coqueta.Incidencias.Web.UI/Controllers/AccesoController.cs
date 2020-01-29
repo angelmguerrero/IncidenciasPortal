@@ -23,7 +23,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
 
         [HttpGet]
       
-        public ActionResult Index()
+        public ActionResult Login()
         {
 
             return this.View();
@@ -33,7 +33,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(Persona per)
+        public ActionResult Login(Persona per)
         {
             EnumeradoAutenticacion resultadoAutenticacion = this.administradorAutenticacion.AutenticarUsuario(per.NombreUsuario, per.Password);
 
@@ -45,7 +45,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
                     this.ModelState.AddModelError(string.Empty, "Usuario no existe o contraseña es inválida.");
                     break;
             }
-            return this.View("Index", per);
+            return this.View("Login", per);
         }
 
 
@@ -54,7 +54,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         {
 
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index", "Acceso");
+            return RedirectToAction("Login", "Acceso");
 
 
 

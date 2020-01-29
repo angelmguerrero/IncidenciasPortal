@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Coqueta.Incidencias.Web.Entidades.Dominio.Usuario;
+using Coqueta.Incidencias.Web.Entidades;
 
 namespace Coqueta.Incidencias.Web.Entidades.Contratos
 {
-    public interface IRepositorioUsuarios
+    public interface IRepositorioLotes
     {
-        Usuarios ObtenerUsuarioAutenticado(string nombreUsuario, string password);
     }
 }

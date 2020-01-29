@@ -9,7 +9,6 @@ using Coqueta.Incidencias.Web.Datos.Contexto;
 
 namespace Coqueta.Incidencias.Web.Datos.Repositorio
 {
-    //public class RepositorioUsuario : Repositorio<Usuario>, IRepositorioUsuarios
     public class RepositorioUsuario : IRepositorioUsuarios
     {
 
@@ -24,16 +23,16 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
 
 
         #region Métodos Públicos
-        Persona IRepositorioUsuarios.ObtenerUsuarioAutenticado(string nombreUsuario, string password)
+        Usuarios IRepositorioUsuarios.ObtenerUsuarioAutenticado(string nombreUsuario, string password)
         {
             
             ModeloDatos objEntity = new ModeloDatos(cadenaConexion);
-            List<Usuario> lstUser = new List<Usuario>();
+            List<Contexto.Usuario> lstUser = new List<Contexto.Usuario>();
             lstUser = objEntity.Usuarios.ToList();
             
             var query = from US in lstUser
             where US.NombreUsuario == nombreUsuario && US.Password == password && Convert.ToBoolean(US.Activo)
-                        select new Persona()
+                        select new Entidades.Dominio.Usuario.Usuarios()
                         {
                             Id = US.Id,
                             Nombre = US.Nombre,
@@ -41,7 +40,7 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
                             Password = US.Password
                         };
 
-            Persona usuario = query.SingleOrDefault();
+            Entidades.Dominio.Usuario.Usuarios usuario = query.SingleOrDefault();
 
             if (usuario != null)
             {

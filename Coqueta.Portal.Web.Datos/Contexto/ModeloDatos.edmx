@@ -387,13 +387,13 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             <End Role="cTipoIncidencia" EntitySet="TipoIncidencias" />
             <End Role="lIncidencias" EntitySet="Incidencias" />
           </AssociationSet>
-          <EntitySet Name="rFotoPorlIncidencias" EntityType="IncidenciasCoquetaModel.rFotoPorlIncidencia" />
+          <EntitySet Name="FotoPorlIncidencias" EntityType="IncidenciasCoquetaModel.FotoPorlIncidencia" />
           <AssociationSet Name="FK_rFotoPorlIncidencias_lIncidencias" Association="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias">
             <End Role="Incidencia" EntitySet="Incidencias" />
-            <End Role="rFotoPorlIncidencia" EntitySet="rFotoPorlIncidencias" />
+            <End Role="rFotoPorlIncidencia" EntitySet="FotoPorlIncidencias" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="rFotoPorlIncidencia">
+        <EntityType Name="FotoPorlIncidencia">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -404,7 +404,7 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
         </EntityType>
         <Association Name="FK_rFotoPorlIncidencias_lIncidencias">
           <End Type="IncidenciasCoquetaModel.Incidencia" Role="Incidencia" Multiplicity="0..1" />
-          <End Type="IncidenciasCoquetaModel.rFotoPorlIncidencia" Role="rFotoPorlIncidencia" Multiplicity="*" />
+          <End Type="IncidenciasCoquetaModel.FotoPorlIncidencia" Role="rFotoPorlIncidencia" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Incidencia">
               <PropertyRef Name="Id" />
@@ -571,8 +571,8 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="rFotoPorlIncidencias">
-            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.rFotoPorlIncidencia">
+          <EntitySetMapping Name="FotoPorlIncidencias">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.FotoPorlIncidencia">
               <MappingFragment StoreEntitySet="rFotoPorlIncidencias">
                 <ScalarProperty Name="Foto" ColumnName="Foto" />
                 <ScalarProperty Name="lIncidenciasId" ColumnName="lIncidenciasId" />

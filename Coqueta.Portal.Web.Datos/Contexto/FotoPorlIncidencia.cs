@@ -12,7 +12,7 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
     using System;
     using System.Collections.Generic;
     
-    public partial class rFotoPorlIncidencia
+    public partial class FotoPorlIncidencia
     {
         public int Id { get; set; }
         public Nullable<int> lIncidenciasId { get; set; }

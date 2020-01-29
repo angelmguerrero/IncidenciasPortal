@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace Coqueta.Incidencias.Web.Entidades.Dominio.Usuario
 {
     
-    public partial class Persona
+    public partial class Usuarios
     {
         #region Constructor
-        public Persona()
+        public Usuarios()
         { }
         #endregion
 

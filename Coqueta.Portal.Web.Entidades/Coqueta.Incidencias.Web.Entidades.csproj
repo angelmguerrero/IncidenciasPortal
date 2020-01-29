@@ -42,8 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contratos\IRepositorioLotes.cs" />
     <Compile Include="Contratos\IRepositorioUsuarios.cs" />
-    <Compile Include="Dominio\Usuario\Persona.cs" />
+    <Compile Include="Dominio\Usuario\Usuarios.cs" />
     <Compile Include="Modelo\Usuario\PersonaParcial.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -53,6 +54,8 @@
       <Name>Coqueta.Incidencias.Web.Comun</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Dominio\Lotes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

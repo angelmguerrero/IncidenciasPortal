@@ -502,7 +502,6 @@
     <Content Include="Views\Shared\TopNavbar.cshtml" />
     <Content Include="Views\Legal\TerminosCondicionesUso.cshtml" />
     <Content Include="Views\Legal\AvisoPrivacidad.cshtml" />
-    <Content Include="Views\Acceso\Index.cshtml" />
     <Content Include="Views\Inicio\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

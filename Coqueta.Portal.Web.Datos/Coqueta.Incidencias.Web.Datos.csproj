@@ -55,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contexto\ContextoDatos.cs" />
+    <Compile Include="Contexto\FotoPorlIncidencia.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Contexto\Incidencia.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -79,9 +82,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\rFotoPorlIncidencia.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
     <Compile Include="Contexto\TipoIncidencia.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -89,6 +89,7 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\RepositorioLotes.cs" />
     <Compile Include="Repositorio\RepositorioUsuario.cs" />
   </ItemGroup>
   <ItemGroup>

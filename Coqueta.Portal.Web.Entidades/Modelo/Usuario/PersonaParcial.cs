@@ -16,5 +16,7 @@ namespace Coqueta.Incidencias.Web.Entidades.Modelo
         [Required(ErrorMessage = "Contraseña es requerida")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        
     }
 }

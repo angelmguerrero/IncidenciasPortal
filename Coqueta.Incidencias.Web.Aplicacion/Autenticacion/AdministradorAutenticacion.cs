@@ -36,7 +36,7 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Autenticacion
 
             if (Usuario != null)
             {
-                FormsAuthentication.SetAuthCookie(Usuario.NombreUsuario, false);
+                FormsAuthentication.SetAuthCookie(Usuario.Nombre, false);
                 return EnumeradoAutenticacion.AccesoValido;
 
             }

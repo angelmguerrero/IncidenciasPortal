@@ -35,6 +35,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(Persona per)
         {
+            
             EnumeradoAutenticacion resultadoAutenticacion = this.administradorAutenticacion.AutenticarUsuario(per.NombreUsuario, per.Password);
 
             switch (resultadoAutenticacion)

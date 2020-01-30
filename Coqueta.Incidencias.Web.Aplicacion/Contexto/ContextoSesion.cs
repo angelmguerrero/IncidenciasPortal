@@ -12,14 +12,15 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Contexto
 {
     public class ContextoSesion
     {
-        public static Usuarios Usuario
+        public static string Usuario
         {
             get
             {
-                object usuarioSesion = HttpContext.Current.Session["__Usuario__"];
+                object usuarioSesion = HttpContext.Current.Session["UsuarioAutenticado"];
                 if (usuarioSesion != null)
                 {
-                    return (Usuarios)usuarioSesion;
+                    string usrtmp = usuarioSesion.ToString();
+                    return usrtmp;
                 }
                 else
                 {
@@ -27,5 +28,13 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Contexto
                 }
             }
         }
+
+
+        public static void PersistirUsuario(string usuarioSesion)
+        {
+            HttpContext.Current.Session["UsuarioAutenticado"] = usuarioSesion;
+        }
+
+
     }
 }

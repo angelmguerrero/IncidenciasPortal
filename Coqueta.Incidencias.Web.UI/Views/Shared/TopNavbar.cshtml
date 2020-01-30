@@ -1,5 +1,7 @@
-﻿@using Coqueta.Incidencias.Web.Entidades.Dominio.Usuario;
-@*@{ UsuarioAutenticado usuarioAutenticado = ContextoSesion.Usuario; }*@
+﻿@using Coqueta.Incidencias.Web.Aplicacion.Contexto;
+@using Coqueta.Incidencias.Web.Entidades.Dominio.Usuario;
+
+@{ string usuarioAutenticado = ContextoSesion.Usuario;}
 
 
 <!-- START Top Navbar-->
@@ -33,7 +35,7 @@
             <li class="ayudaPrincipalPaso3">
                 <!-- Button used to collapse the left sidebar. Only visible on tablet and desktops-->
                 <a href="#" data-toggle-state="offsidebar-open" data-no-persist="true">
-                    @*<i class="icon-user fa-lg"></i>&nbsp;&nbsp;@string.Format("({0}) {1}, {2}", usuarioAutenticado.NombreUsuario, usuarioAutenticado.NombrePersona, usuarioAutenticado.RolSeleccionado.Nombre)*@
+                    <i class="icon-user fa-lg"></i>&nbsp;&nbsp;@string.Format("{0}", usuarioAutenticado)
                 </a>
             </li>
         </ul>

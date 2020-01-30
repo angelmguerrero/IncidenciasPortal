@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using Coqueta.Incidencias.Web.Entidades.Contratos;
 using Coqueta.Incidencias.Web.Entidades.Dominio.Usuario;
 using Coqueta.Incidencias.Web.Datos.Contexto;
-using System.Web.Mv;
-
 
 namespace Coqueta.Incidencias.Web.Datos.Repositorio
 {

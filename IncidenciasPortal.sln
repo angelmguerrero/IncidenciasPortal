@@ -25,11 +25,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coqueta.Incidencias.Web.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coqueta.Incidencias.Web.UI", "Coqueta.Incidencias.Web.UI\Coqueta.Incidencias.Web.UI.csproj", "{06AC636B-147E-4A1E-9385-044B6DD00384}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{508A3433-84EB-421A-9EC5-657314D986D7}"
-	ProjectSection(SolutionItems) = preProject
-		TextFile1.txt = TextFile1.txt
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,7 +70,6 @@ Global
 		{D34E57AE-B6AF-4DEC-B616-6A71BB4A6E47} = {1485D3D6-E2E8-46E7-A0EC-3C21BC3A21A4}
 		{B47D79C8-4A64-465E-996B-196C4CDC2746} = {81585174-8C50-467E-B01F-DCC7906B47C2}
 		{06AC636B-147E-4A1E-9385-044B6DD00384} = {EE458006-C917-4C68-98E8-726DA707F0F1}
-		{508A3433-84EB-421A-9EC5-657314D986D7} = {124F38A0-8A8D-473F-BB40-F4990B894011}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73D6EF01-3CEE-49C2-A46C-AF5E5DFB05F2}

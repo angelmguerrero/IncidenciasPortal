@@ -83,6 +83,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloDatos.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Contexto\ParametroAplicacion.cs">
+      <DependentUpon>ModeloDatos.tt</DependentUpon>
+    </Compile>
     <Compile Include="Contexto\TipoIncidencia.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -90,6 +93,7 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\RepositorioParametros.cs" />
     <Compile Include="Repositorio\RepositorioLotes.cs" />
     <Compile Include="Repositorio\RepositorioUsuario.cs" />
   </ItemGroup>

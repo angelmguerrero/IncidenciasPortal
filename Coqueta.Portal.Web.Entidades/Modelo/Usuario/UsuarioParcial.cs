@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Coqueta.Incidencias.Web.Entidades.Modelo
 {
-    public partial class Persona
+    public partial class Usuario
     {
         [Required(ErrorMessage = "Nombre de usuario es requerido")]   
         public string NombreUsuario { get; set; }

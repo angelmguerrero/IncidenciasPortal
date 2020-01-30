@@ -151,6 +151,14 @@
           <Property Name="lIncidenciasId" Type="int" />
           <Property Name="Foto" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="sParametroAplicacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Valor" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="uvwLotesMontado">
@@ -193,6 +201,7 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <EntitySet Name="cUsuarios" EntityType="Self.cUsuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="lIncidencias" EntityType="Self.lIncidencias" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="rFotoPorlIncidencias" EntityType="Self.rFotoPorlIncidencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sParametroAplicacion" EntityType="Self.sParametroAplicacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="uvwLotesMontado" EntityType="Self.uvwLotesMontado" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [uvwLotesMontado].[Lote] AS [Lote], 
@@ -392,6 +401,7 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             <End Role="Incidencia" EntitySet="Incidencias" />
             <End Role="rFotoPorlIncidencia" EntitySet="FotoPorlIncidencias" />
           </AssociationSet>
+          <EntitySet Name="ParametroAplicacions" EntityType="IncidenciasCoquetaModel.ParametroAplicacion" />
         </EntityContainer>
         <EntityType Name="FotoPorlIncidencia">
           <Key>
@@ -414,6 +424,14 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ParametroAplicacion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Valor" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -576,6 +594,15 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
               <MappingFragment StoreEntitySet="rFotoPorlIncidencias">
                 <ScalarProperty Name="Foto" ColumnName="Foto" />
                 <ScalarProperty Name="lIncidenciasId" ColumnName="lIncidenciasId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParametroAplicacions">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.ParametroAplicacion">
+              <MappingFragment StoreEntitySet="sParametroAplicacion">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

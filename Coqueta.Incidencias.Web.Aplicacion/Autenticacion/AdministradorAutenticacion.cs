@@ -30,6 +30,7 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Autenticacion
         #region Métodos Públicos
         EnumeradoAutenticacion IAdministradorAutenticacion.AutenticarUsuario(string nombreUsuario, string password)
         {
+            
 
             IRepositorioUsuarios repositorioUsuarios = new RepositorioUsuario(cadenaConexion);
             Usuarios Usuario = repositorioUsuarios.ObtenerUsuarioAutenticado(nombreUsuario, password);
@@ -37,6 +38,9 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Autenticacion
             if (Usuario != null)
             {
                 FormsAuthentication.SetAuthCookie(Usuario.Nombre, false);
+                System.Web.HttpContext.Current.Session["nombreCompleto "] = Usuario.Nombre;
+
+
                 return EnumeradoAutenticacion.AccesoValido;
 
             }

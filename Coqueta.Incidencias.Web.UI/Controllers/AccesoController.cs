@@ -33,19 +33,22 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Persona per)
+        public ActionResult Login(Usuario per)
         {
-            
-            EnumeradoAutenticacion resultadoAutenticacion = this.administradorAutenticacion.AutenticarUsuario(per.NombreUsuario, per.Password);
-
-            switch (resultadoAutenticacion)
+            if (this.ModelState.IsValid)
             {
-                case EnumeradoAutenticacion.AccesoValido:
-                    return this.RedirectToAction("Index", "Home");
-                default:
-                    this.ModelState.AddModelError(string.Empty, "Usuario no existe o contraseña es inválida.");
-                    break;
+                EnumeradoAutenticacion resultadoAutenticacion = this.administradorAutenticacion.AutenticarUsuario(per.NombreUsuario, per.Password);
+
+                switch (resultadoAutenticacion)
+                {
+                    case EnumeradoAutenticacion.AccesoValido:
+                        return this.RedirectToAction("Index", "Home");
+                    default:
+                        this.ModelState.AddModelError(string.Empty, "Usuario no existe o contraseña es inválida.");
+                        break;
+                }
             }
+           
             return this.View("Login", per);
         }
 

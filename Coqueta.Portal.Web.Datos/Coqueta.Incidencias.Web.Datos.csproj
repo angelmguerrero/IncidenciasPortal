@@ -62,9 +62,6 @@
     <Compile Include="Contexto\Incidencia.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\Lote.cs">
-      <DependentUpon>ModeloDatos.tt</DependentUpon>
-    </Compile>
     <Compile Include="Contexto\LotesMontado.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
@@ -89,7 +86,7 @@
     <Compile Include="Contexto\TipoIncidencia.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
-    <Compile Include="Contexto\Usuario.cs">
+    <Compile Include="Contexto\Usuarios.cs">
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

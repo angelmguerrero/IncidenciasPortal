@@ -23,7 +23,7 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
         #endregion
         
         #region Métodos Públicos
-        Usuarios IRepositorioUsuarios.ObtenerUsuarioAutenticado(string nombreUsuario, string password)
+        Usuario IRepositorioUsuarios.ObtenerUsuarioAutenticado(string nombreUsuario, string password)
         {
             //using (ModeloDatos db = new ModeloDatos(cadenaConexion))
             //{
@@ -45,7 +45,7 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
 
                 if (obj != null)
                 {
-                    Usuarios user = new Usuarios();
+                    Usuario user = new Usuario();
                     user.Id = obj.Id;
                     user.Nombre = obj.Nombre;
                     user.NombreUsuario = obj.NombreUsuario;

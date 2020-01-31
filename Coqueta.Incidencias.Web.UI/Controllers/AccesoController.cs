@@ -1,7 +1,7 @@
 ﻿using Coqueta.Incidencias.Web.Aplicacion.Autenticacion;
 using Coqueta.Incidencias.Web.Comun.Constantes;
 using Coqueta.Incidencias.Web.Comun.Enumerados;
-using Coqueta.Incidencias.Web.Entidades.Modelo;
+using Coqueta.Incidencias.Web.Entidades.Dominio.Usuario;
 using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;

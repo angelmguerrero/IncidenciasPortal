@@ -25,12 +25,11 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Lote> Lotes { get; set; }
         public virtual DbSet<TipoIncidencia> TipoIncidencias { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Incidencia> Incidencias { get; set; }
         public virtual DbSet<FotoPorlIncidencia> FotoPorlIncidencias { get; set; }
-        public virtual DbSet<LotesMontado> LotesMontadoes { get; set; }
         public virtual DbSet<ParametroAplicacion> ParametroAplicacions { get; set; }
+        public virtual DbSet<LotesMontado> LotesMontadoes { get; set; }
     }
 }

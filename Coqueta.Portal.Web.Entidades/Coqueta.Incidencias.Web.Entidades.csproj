@@ -45,11 +45,10 @@
     <Compile Include="Contratos\IRepositorioLotes.cs" />
     <Compile Include="Contratos\IRepositorioParametros.cs" />
     <Compile Include="Contratos\IRepositorioUsuarios.cs" />
-    <Compile Include="Dominio\Incidencias.cs" />
+    <Compile Include="Dominio\Incidencias\Incidencias.cs" />
     <Compile Include="Dominio\Parametros\Parametros.cs" />
     <Compile Include="Dominio\Lotes\Lotes.cs" />
-    <Compile Include="Dominio\Usuario\Usuarios.cs" />
-    <Compile Include="Modelo\Usuario\UsuarioParcial.cs" />
+    <Compile Include="Dominio\Usuario\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

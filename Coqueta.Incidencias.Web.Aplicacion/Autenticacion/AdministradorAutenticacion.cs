@@ -33,7 +33,7 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Autenticacion
             
 
             IRepositorioUsuarios repositorioUsuarios = new RepositorioUsuario(cadenaConexion);
-            Usuarios Usuario = repositorioUsuarios.ObtenerUsuarioAutenticado(nombreUsuario, password);
+            Usuario Usuario = repositorioUsuarios.ObtenerUsuarioAutenticado(nombreUsuario, password);
 
             if (Usuario != null)
             {

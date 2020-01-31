@@ -21,15 +21,17 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
         }
     
         public int Id { get; set; }
-        public Nullable<short> Lote { get; set; }
+        public string Lote { get; set; }
         public Nullable<short> Riel { get; set; }
         public string Semana { get; set; }
         public Nullable<System.DateTime> FechaRegistroIncidencia { get; set; }
         public Nullable<short> TipoIncidenciaId { get; set; }
         public Nullable<int> TotalIncidencias { get; set; }
         public string Descripcion { get; set; }
+        public Nullable<int> UsuarioId { get; set; }
     
         public virtual TipoIncidencia cTipoIncidencia { get; set; }
+        public virtual Usuarios cUsuario { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FotoPorlIncidencia> rFotoPorlIncidencias { get; set; }
     }

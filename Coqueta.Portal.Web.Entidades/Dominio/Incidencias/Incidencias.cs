@@ -15,6 +15,7 @@ namespace Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias
         public int TipoIncidencia { get; set; }
         public int TotalIncidencia { get; set; }
         public string Descripcion { get; set; }
-        
+        public int Usuario { get; set; }
+        public List<FotosPorIncidencia> Foto { get; set; }
     }
 }

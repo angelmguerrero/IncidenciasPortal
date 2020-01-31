@@ -21,9 +21,11 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
         }
     
         public int Id { get; set; }
-        public Nullable<int> TipoProductoId { get; set; }
         public Nullable<short> Lote { get; set; }
-        public string NombreIncidencia { get; set; }
+        public Nullable<short> Riel { get; set; }
+        public string Semana { get; set; }
+        public Nullable<System.DateTime> FechaRegistroIncidencia { get; set; }
+        public Nullable<short> TipoIncidenciaId { get; set; }
         public Nullable<int> TotalIncidencias { get; set; }
         public string Descripcion { get; set; }
     

@@ -29,8 +29,8 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
         public virtual DbSet<TipoIncidencia> TipoIncidencias { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Incidencia> Incidencias { get; set; }
-        public virtual DbSet<LotesMontado> LotesMontadoes { get; set; }
         public virtual DbSet<FotoPorlIncidencia> FotoPorlIncidencias { get; set; }
+        public virtual DbSet<LotesMontado> LotesMontadoes { get; set; }
         public virtual DbSet<ParametroAplicacion> ParametroAplicacions { get; set; }
     }
 }

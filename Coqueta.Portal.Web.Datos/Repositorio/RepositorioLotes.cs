@@ -26,7 +26,6 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
             ModeloDatos objEntity = new ModeloDatos(cadenaConexion);
 
             List<Contexto.Lote> lstLotes = new List<Contexto.Lote>();
-            //lstLotes = 
 
             return null;
         }

@@ -15,12 +15,15 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
     {
         #region Campos
         private string cadenaConexion;
+        ModeloDatos db;
         #endregion
 
         #region Constructor
         public RepositorioParametros(string cadenaConexion)
         {
             this.cadenaConexion = cadenaConexion;
+            this.db = new ModeloDatos(cadenaConexion);
+
         }
         #endregion
 
@@ -28,8 +31,22 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
         #region Métodos Públicos
         Parametros IRepositorioParametros.ObtenerValorParametro(EnumeradorParametro enumeradoParametro)
         {
-            using (ModeloDatos db = new ModeloDatos(cadenaConexion))
-            {
+            //using (ModeloDatos db = new ModeloDatos(cadenaConexion))
+            //{
+            //    var param = db.ParametroAplicacions.Where(a => a.Id.Equals(enumeradoParametro)).FirstOrDefault();
+            //    if (param != null)
+            //    {
+            //        Parametros parametro = new Parametros();
+            //        parametro.Id = param.Id;
+            //        parametro.Valor = parametro.Valor;
+            //        return parametro;
+            //    }
+            //    else
+            //        return null;
+
+            //}
+
+            
                 var param = db.ParametroAplicacions.Where(a => a.Id.Equals(enumeradoParametro)).FirstOrDefault();
                 if (param != null)
                 {
@@ -40,8 +57,8 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
                 }
                 else
                     return null;
+           
 
-            }
         }
 
         #endregion

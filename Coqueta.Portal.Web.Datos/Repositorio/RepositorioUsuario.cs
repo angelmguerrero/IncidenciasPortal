@@ -12,19 +12,35 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
     public class RepositorioUsuario : IRepositorioUsuarios
     {
         public string cadenaConexion;
+        ModeloDatos db;
 
         #region Constructor
         public RepositorioUsuario(string cadenaConexion)
         {
             this.cadenaConexion = cadenaConexion;
+            this.db = new ModeloDatos(cadenaConexion);
         }
         #endregion
         
         #region Métodos Públicos
         Usuarios IRepositorioUsuarios.ObtenerUsuarioAutenticado(string nombreUsuario, string password)
         {
-            using (ModeloDatos db = new ModeloDatos(cadenaConexion))
-            {
+            //using (ModeloDatos db = new ModeloDatos(cadenaConexion))
+            //{
+            //    var obj = db.Usuarios.Where(a => a.NombreUsuario.Equals(nombreUsuario) && a.Password.Equals(password) && a.Activo == true).FirstOrDefault();
+
+            //    if (obj != null)
+            //    {
+            //        Usuarios user = new Usuarios();
+            //        user.Id = obj.Id;
+            //        user.Nombre = obj.Nombre;
+            //        user.NombreUsuario = obj.NombreUsuario;
+            //        return user;
+            //    }
+            //    else
+            //        return null;
+            //}
+          
                 var obj = db.Usuarios.Where(a => a.NombreUsuario.Equals(nombreUsuario) && a.Password.Equals(password) && a.Activo == true).FirstOrDefault();
 
                 if (obj != null)
@@ -37,7 +53,9 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
                 }
                 else
                     return null;
-            }
+            
+
+
 
         }
         #endregion

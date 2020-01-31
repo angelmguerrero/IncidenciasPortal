@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IncidenciasController.cs" />
     <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\LegalController.cs" />
     <Compile Include="Global.asax.cs">
@@ -519,6 +520,7 @@
     <Content Include="Views\Legal\TerminosCondicionesUso.cshtml" />
     <Content Include="Views\Legal\AvisoPrivacidad.cshtml" />
     <Content Include="Views\Inicio\Index.cshtml" />
+    <Content Include="Views\Incidencias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

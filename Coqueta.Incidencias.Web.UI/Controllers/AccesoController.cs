@@ -42,7 +42,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
                 switch (resultadoAutenticacion)
                 {
                     case EnumeradoAutenticacion.AccesoValido:
-                        return this.RedirectToAction("Index", "Incidencias");
+                        return this.RedirectToAction("Index", "Inicio");
                     default:
                         this.ModelState.AddModelError(string.Empty, "Usuario no existe o contraseña es inválida.");
                         break;

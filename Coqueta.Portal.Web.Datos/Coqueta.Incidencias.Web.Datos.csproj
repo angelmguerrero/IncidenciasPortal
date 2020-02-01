@@ -90,6 +90,7 @@
       <DependentUpon>ModeloDatos.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\RepositorioIncidencias.cs" />
     <Compile Include="Repositorio\RepositorioParametros.cs" />
     <Compile Include="Repositorio\RepositorioLotes.cs" />
     <Compile Include="Repositorio\RepositorioUsuario.cs" />

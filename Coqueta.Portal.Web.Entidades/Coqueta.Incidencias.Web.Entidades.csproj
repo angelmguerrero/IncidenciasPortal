@@ -42,11 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contratos\IRepositorioIncidencias.cs" />
     <Compile Include="Contratos\IRepositorioLotes.cs" />
     <Compile Include="Contratos\IRepositorioParametros.cs" />
     <Compile Include="Contratos\IRepositorioUsuarios.cs" />
     <Compile Include="Dominio\Incidencias\FotosPorIncidencia.cs" />
     <Compile Include="Dominio\Incidencias\Incidencias.cs" />
+    <Compile Include="Dominio\Incidencias\TipoIncidencias.cs" />
     <Compile Include="Dominio\Parametros\Parametros.cs" />
     <Compile Include="Dominio\Lotes\Lotes.cs" />
     <Compile Include="Dominio\Usuario\Usuario.cs" />

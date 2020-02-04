@@ -30,12 +30,12 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
                         {
                             Lotes = lot.Lote,
                             Estilo = lot.Estilo,
-                            Cominacion = lot.Combinacion,
+                            Combinacion = lot.Combinacion,
                             Suela = lot.Suela,
                             NumSem = lot.NumSemana
                         };
 
-            return new List<Lote>();
+            return query.ToList();
         }
 
         #endregion

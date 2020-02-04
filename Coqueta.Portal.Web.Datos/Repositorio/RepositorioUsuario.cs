@@ -25,22 +25,7 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
         #region Métodos Públicos
         Usuario IRepositorioUsuarios.ObtenerUsuarioAutenticado(string nombreUsuario, string password)
         {
-            //using (ModeloDatos db = new ModeloDatos(cadenaConexion))
-            //{
-            //    var obj = db.Usuarios.Where(a => a.NombreUsuario.Equals(nombreUsuario) && a.Password.Equals(password) && a.Activo == true).FirstOrDefault();
-
-            //    if (obj != null)
-            //    {
-            //        Usuarios user = new Usuarios();
-            //        user.Id = obj.Id;
-            //        user.Nombre = obj.Nombre;
-            //        user.NombreUsuario = obj.NombreUsuario;
-            //        return user;
-            //    }
-            //    else
-            //        return null;
-            //}
-          
+         
                 var obj = db.Usuarios.Where(a => a.NombreUsuario.Equals(nombreUsuario) && a.Password.Equals(password) && a.Activo == true).FirstOrDefault();
 
                 if (obj != null)

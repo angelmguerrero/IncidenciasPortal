@@ -15,7 +15,7 @@ namespace Coqueta.Incidencias.Web.Entidades.Dominio.Lote
 
         public string Lotes { get; set; }
         public int Estilo { get; set; }
-        public string Cominacion { get; set; }
+        public string Combinacion { get; set; }
         public string Suela { get; set; }
         [DisplayName("Numero de Semana")]
         public Nullable<int> NumSem { get; set; }

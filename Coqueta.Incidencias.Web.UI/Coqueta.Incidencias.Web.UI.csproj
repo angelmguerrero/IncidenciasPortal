@@ -129,11 +129,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\IncidenciasController.cs" />
-    <Compile Include="Controllers\InicioController.cs" />
     <Compile Include="Controllers\LegalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HelperPortal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -467,6 +467,7 @@
     <Content Include="Componentes\fontawesome\fonts\fontawesome-webfont.ttf" />
     <Content Include="Componentes\fontawesome\fonts\fontawesome-webfont.woff" />
     <Content Include="Componentes\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\Incidencias\Incidencias.js" />
     <Content Include="Scripts\Incidencias\Lotes.js" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
@@ -516,7 +517,6 @@
     <Content Include="Views\Shared\TopNavbar.cshtml" />
     <Content Include="Views\Legal\TerminosCondicionesUso.cshtml" />
     <Content Include="Views\Legal\AvisoPrivacidad.cshtml" />
-    <Content Include="Views\Inicio\Index.cshtml" />
     <Content Include="Views\Incidencias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

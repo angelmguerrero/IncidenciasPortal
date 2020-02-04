@@ -1,40 +1,22 @@
-﻿
-@{
-    ViewBag.Title = "Captura de Incidencias";
+﻿@{
+    ViewBag.Title = "Agregar Incidencias";
     Layout = "~/Views/Shared/LayoutPrivado.cshtml";
 }
 
-<script src="~/Scripts/jquery-3.1.1.js"></script>
-<script src="~/Scripts/bootstrap.js"></script>
-<link href="~/Content/bootstrap.css" rel="stylesheet" />
-<script src="~/Scripts/Incidencias/Lotes.js"></script>
 
 
+
+@Html.AntiForgeryToken()
 <div class="container">
-    <h2>Listado de Lotes</h2>
-
-    <table class="table table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>
-                    Lotes
-                </th>
-                <th>
-                    Estilo
-                </th>
-                <th>
-                    Combinacion
-                </th>
-                <th>
-                    Suelas
-                </th>
-                <th>
-                    Semana
-                </th>
-            </tr>
-        </thead>
-        <tbody class="tbody"></tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-3">
+            <label>Lotes:</label>
+            <select id="cboLotesMontado" name="cboLotesMontado" class="form-control" onchange="ObtenerDatosLote()"></select>
+        </div>
+        <div class="col-md-3">two</div>
+        <div class="col-md-3">three</div>
+    </div>
 </div>
 
 
+<script src="~/Scripts/Incidencias/Incidencias.js"></script>

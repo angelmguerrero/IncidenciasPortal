@@ -6,7 +6,7 @@ $(document).ready(function () {
 //Load data function
 function loadData() {
     $.ajax({
-        url: "/Incidencias/ObtenerLotes",
+        url: "/Incidencias/Index",
         type: "GET",
         contentType: "application/json;charset=utf-8",
         dataType: "json",

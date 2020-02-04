@@ -15,22 +15,20 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
             string cadenaConexion = ConfigurationManager.ConnectionStrings[ConstanteComun.CadenaConexion].ConnectionString;
             this.administradorLotes = new AdministradorLotes(cadenaConexion);
         }
-        // GET: Incidencias
+
         public ActionResult Index()
         {
             return View();
         }
 
 
-        public JsonResult ObtenerLotes()
+        [HttpPost]
+        public ActionResult ObtenerLotes()
         {
             List<Lote> resultadoLotes = this.administradorLotes.ObtenerListadoLotes();
-            return Json(resultadoLotes, JsonRequestBehavior.AllowGet);
+            return Json(resultadoLotes);
         }
 
-        public ActionResult AgregarIncidencia()
-        {
-            return null;
-        }
+
     }
 }

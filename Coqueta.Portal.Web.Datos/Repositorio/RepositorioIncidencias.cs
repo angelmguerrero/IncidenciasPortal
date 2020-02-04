@@ -33,7 +33,7 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
                             Incidencia = inc.Incidencia
 
                         };
-            return new List<TipoIncidencias>(); 
+            return query.ToList(); 
         }
         #endregion
     }

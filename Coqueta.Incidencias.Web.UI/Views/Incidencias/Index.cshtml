@@ -1,22 +1,77 @@
-﻿@{
+﻿@model Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.Incidencias
+
+@{
     ViewBag.Title = "Agregar Incidencias";
     Layout = "~/Views/Shared/LayoutPrivado.cshtml";
 }
 
 
-
-
 @Html.AntiForgeryToken()
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <label>Lotes:</label>
-            <select id="cboLotesMontado" name="cboLotesMontado" class="form-control" onchange="ObtenerDatosLote()"></select>
+<div class="row">
+    <div class="col-md-3 campoCorto">
+        @Html.LabelFor(model => model.Lote, new { @class="control-label"})
+        @Html.DropDownList("cboLotesMontado", new SelectList(Enumerable.Empty<SelectListItem>()), new {  @class = "form-control" })
+    </div>
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Riel, new { @class="control-label" })
+        @Html.DropDownList("cboRiel", new List<SelectListItem>
+        {
+            new SelectListItem{ Text="--Seleccione un Riel--", Value = "0" },
+            new SelectListItem{ Text="1", Value = "1" },
+            new SelectListItem{ Text="2", Value = "2" },
+            new SelectListItem{ Text="3", Value = "3" },
+            new SelectListItem{ Text="4", Value = "4" },
+            new SelectListItem{ Text="5", Value = "5" },
+        }, new { @class= "form-control"})
+    </div>
+
+    <div class="col-md-3">
+        @Html.LabelFor(model => model.Semana, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Semana, new { @readonly = "readonly", @class = "form-control" })
+        <div>
+            @Html.ValidationMessageFor(model => model.Semana, "", new {  @class = "text-danger" })
         </div>
-        <div class="col-md-3">two</div>
-        <div class="col-md-3">three</div>
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-3">
+        <label>Estilo :</label>
+        <input id="txtEstilo" type="text" class="form-control" readonly="readonly">
+    </div>
+
+    <div class="col-md-3">
+        <label>Combinación :</label>
+        <input id="txtCombinacion" type="text" class="form-control" readonly="readonly" />
+    </div>
+
+    <div class="col-md-3">
+        <label>Suela :</label>
+        <input id="txtSuela" type="text" class="form-control" readonly="readonly" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        @*<label>Tipo de Incidencia :</label>
+        <select id="cboTipoIncidencia" name="cboTipoIncidencia" class="form-control">     </select>*@
+        @Html.LabelFor(model => model.TipoIncidencia, new {@class="control-label" })
+        @Html.DropDownList("cboTipoIncidencia", new SelectList(Enumerable.Empty<SelectListItem>()), new {@class="form-control" })
+
+    </div>
+
+    <div class="col-md-6">
+        <label>Incidencias :</label>
+
+        <textarea id="txtComentarios" name="txtComentatios" cols="50" rows="10" placeholder="Ingresa la descripción de la incidencia que se reporta" class="form-control"></textarea>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" align="right">
+        <button class="btn btn-primary" type="submit">Guardar <i class="fa fa-lg fa-arrow-circle-right"></i></button>
+    </div>
+</div>
 
 <script src="~/Scripts/Incidencias/Incidencias.js"></script>

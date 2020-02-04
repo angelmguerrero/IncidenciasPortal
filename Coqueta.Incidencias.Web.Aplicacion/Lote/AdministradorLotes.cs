@@ -27,5 +27,12 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Lotes
             return LoteActivo;
 
         }
+
+        List<Lote> IAdministradorLotes.ObtenerDatosLotes(string Id)
+        {
+            IRepositorioLotes repositorioLotes = new RepositorioLotes(cadenaConexion);
+            List<Lote> LoteDatos = repositorioLotes.ObtenerDatosLote(Id);
+            return LoteDatos;
+        }
     }
 }

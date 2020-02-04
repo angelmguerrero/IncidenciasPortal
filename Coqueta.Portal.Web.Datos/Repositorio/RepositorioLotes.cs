@@ -38,6 +38,24 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
             return query.ToList();
         }
 
+
+
+        List<Lote> IRepositorioLotes.ObtenerDatosLote(string Id)
+        {
+            ModeloDatos objLotes = new ModeloDatos(cadenaConexion);
+
+            var query = from lot in objLotes.LotesMontadoes
+                        where lot.Lote == Id
+                        select new Lote()
+                        {
+                            Lotes = lot.Lote,
+                            Estilo = lot.Estilo,
+                            Combinacion = lot.Combinacion,
+                            Suela = lot.Suela,
+                            NumSem = lot.NumSemana
+                        };
+            return query.ToList();
+        }
         #endregion
     }
 }

@@ -6,5 +6,7 @@ namespace Coqueta.Incidencias.Web.Entidades.Contratos
     public interface IRepositorioLotes
     {
         List<Lote> ObtenerLotes();
+
+        List<Lote> ObtenerDatosLote(string Id);
     }
 }

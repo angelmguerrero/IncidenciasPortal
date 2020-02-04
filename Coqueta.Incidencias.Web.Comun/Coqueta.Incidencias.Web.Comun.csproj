@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constantes\ConstanteComun.cs" />
+    <Compile Include="Constantes\ConstanteSesion.cs" />
     <Compile Include="Constantes\ConstanteVersion.cs" />
     <Compile Include="Enumerados\EnumeradoAutenticacion.cs" />
     <Compile Include="Enumerados\EnumeradoPermisos.cs" />

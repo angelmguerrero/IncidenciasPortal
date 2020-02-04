@@ -1,6 +1,5 @@
 ﻿//Load Data in Table when document is ready
 $(document).ready(function () {
-    debugger;
     cargarFiltrosLotes();
     cargarFiltrosIncidencias();
 
@@ -31,9 +30,6 @@ function CallBackCargarFiltrosIncidencias(data) {
     });
     $("#cboTipoIncidencia").html(option);
 }
-
-
-
 
 $("#cboLotesMontado").change(function () {
     var capturaId = this.value;

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Coqueta.Incidencias.Web.Comun.Enumerados;
+using Coqueta.Incidencias.Web.Comun.Constantes;
 using Coqueta.Incidencias.Web.Entidades.Contratos;
 using Coqueta.Incidencias.Web.Datos.Repositorio;
 using Coqueta.Incidencias.Web.Datos.Contexto;
@@ -38,7 +39,8 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Autenticacion
             if (Usuario != null)
             {
                 FormsAuthentication.SetAuthCookie(Usuario.Nombre, false);
-                ContextoSesion.PersistirUsuario(Usuario.Nombre);
+                ContextoSesion.AgregarSession(ConstanteSesion.Usuario, Usuario.Nombre);
+                ContextoSesion.AgregarSession(ConstanteSesion.NombreUsuario, Usuario.NombreUsuario);
 
                 return EnumeradoAutenticacion.AccesoValido;
 

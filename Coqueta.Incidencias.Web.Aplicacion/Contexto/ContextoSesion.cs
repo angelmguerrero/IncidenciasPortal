@@ -30,9 +30,9 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Contexto
         }
 
 
-        public static void PersistirUsuario(string usuarioSesion)
+        public static void AgregarSession(string NombreSession, string valorSession)
         {
-            HttpContext.Current.Session["UsuarioAutenticado"] = usuarioSesion;
+            HttpContext.Current.Session[NombreSession] = valorSession;
         }
 
 

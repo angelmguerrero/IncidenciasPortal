@@ -50,7 +50,7 @@
     <Compile Include="Dominio\Incidencias\Incidencias.cs" />
     <Compile Include="Dominio\Incidencias\TipoIncidencias.cs" />
     <Compile Include="Dominio\Parametros\Parametros.cs" />
-    <Compile Include="Dominio\Lotes\Lotes.cs" />
+    <Compile Include="Dominio\Lote\Lote.cs" />
     <Compile Include="Dominio\Usuario\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

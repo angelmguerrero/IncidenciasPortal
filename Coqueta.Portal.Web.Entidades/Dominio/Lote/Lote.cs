@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 
-namespace Coqueta.Incidencias.Web.Entidades.Dominio.Lotes
+namespace Coqueta.Incidencias.Web.Entidades.Dominio.Lote
 {
-    public class Lotes
+    public class Lote
     {
-        public Lotes()
+        public Lote()
         { }
 
 
-        public string Lote { get; set; }
+        public string Lotes { get; set; }
         public int Estilo { get; set; }
         public string Cominacion { get; set; }
         public string Suela { get; set; }

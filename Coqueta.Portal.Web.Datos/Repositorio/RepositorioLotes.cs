@@ -21,12 +21,12 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
         #endregion
 
         #region Métodos Públicos
-        List<Lotes> IRepositorioLotes.ObtenerLotes()
+        List<Lote> IRepositorioLotes.ObtenerLotes()
         {
             ModeloDatos objEntity = new ModeloDatos(cadenaConexion);
 
             var query = from lot in objEntity.LotesMontadoes
-                        select new Lotes()
+                        select new Lote()
                         {
                             Lote = lot.Lote,
                             Estilo = lot.Estilo,
@@ -35,7 +35,7 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
                             NumSem = lot.NumSemana
                         };
 
-            return new List<Lotes>();
+            return new List<Lote>();
         }
 
         #endregion

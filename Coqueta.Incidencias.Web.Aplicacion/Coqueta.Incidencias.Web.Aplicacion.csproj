@@ -46,6 +46,8 @@
     <Compile Include="Autenticacion\IAdministradorAutenticacion.cs" />
     <Compile Include="Contexto\ContextoConfiguracion.cs" />
     <Compile Include="Contexto\ContextoSesion.cs" />
+    <Compile Include="Lote\AdministradorLotes.cs" />
+    <Compile Include="Lote\IAdministradorLotes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

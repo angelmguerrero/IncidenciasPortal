@@ -6,9 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Coqueta.Incidencias.Web.Aplicacion.Lotes;
 using Coqueta.Incidencias.Web.Comun.Constantes;
-
-//using Coqueta.Incidencias.Web.Aplicacion.
-//using Coqueta.Incidencias.Web.Entidades.Dominio.
+using Coqueta.Incidencias.Web.Entidades.Dominio.Lote;
 
 namespace Coqueta.Incidencias.Web.UI.Controllers
 {
@@ -27,9 +25,10 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         }
 
 
-        public JsonResult GetLotes()
+        public JsonResult ObtenerLotes()
         {
-            return Json(null);
+            List<Lote> resultadoLotes = this.administradorLotes.ObtenerListadoLotes();
+            return Json(resultadoLotes, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult AgregarIncidencia()

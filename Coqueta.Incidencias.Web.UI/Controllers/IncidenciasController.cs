@@ -50,5 +50,13 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
             return Json(tipoIncidencias);
         }
 
+        [HttpPost]
+        public ActionResult AgregarIncidencia(Incidencia incide)
+        {
+
+            
+            return null;
+        }
+
     }
 }

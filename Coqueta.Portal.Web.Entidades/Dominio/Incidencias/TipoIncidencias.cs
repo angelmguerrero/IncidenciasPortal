@@ -11,5 +11,5 @@ namespace Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias
         public int Id { get; set; }
         public string Incidencia { get; set; }
         public bool Activo { get; set; }
-                }
+     }
 }

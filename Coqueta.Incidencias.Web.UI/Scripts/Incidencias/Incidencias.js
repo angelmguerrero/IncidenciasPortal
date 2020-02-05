@@ -40,7 +40,7 @@ $("#cboLotesMontado").change(function () {
 
 function CallbackObtenerDatosLotes(datos) {
     debugger;
-    $("#Item1_Semana").val(datos[0].NumSem);
+    $("#Semana").val(datos[0].NumSem);
     $("#txtEstilo").val(datos[0].Estilo);
     $("#txtCombinacion").val(datos[0].Combinacion);
     $("#txtSuela").val(datos[0].Suela);
@@ -52,6 +52,7 @@ function LimpiarCaptura() {
     $("#txtEstilo").val("");
     $("#txtCombinacion").val("");
     $("#txtSuela").val("");
+    $("#Descripcion").val("");
 }
 
 function validate() {
@@ -93,7 +94,7 @@ function GuardarIncidencia() {
     var incObj = {
         Lote: $("#cboLotesMontado").val(),
         Riel: $("#cboRiel").val(),
-        Semana: $("#Item1_Semana").val(),
+        Semana: $("#Semana").val(),
         TipoIncidenciaId: $("#cboTipoIncidencia").val(),
         Descripcion: $("#Descripcion").val(),
     };
@@ -102,5 +103,10 @@ function GuardarIncidencia() {
 }
 
 function CallBackGuardarOK() {
+    debugger;
+    LimpiarCaptura()
+    cargarFiltrosLotes();
+    cargarFiltrosIncidencias();
     NotificacionRegistroGuardado();
+    $("#cboRiel").val("0");
 }

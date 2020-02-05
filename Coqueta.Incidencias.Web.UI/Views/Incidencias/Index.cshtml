@@ -31,8 +31,8 @@
     </div>
 
     <div class="col-md-3">
-        @Html.LabelFor(model => model.Item1.Semana, new { @class = "control-label" })
-        @Html.TextBoxFor(model => model.Item1.Semana, new { @readonly = "readonly", @class = "form-control" })
+        @Html.LabelFor(model => model.Item1.Semana, new { @class = "control-label"  })
+        @Html.TextBoxFor(model => model.Item1.Semana, new { @readonly = "readonly", @class = "form-control", @id="Semana"  })
         <div>
             @Html.ValidationMessageFor(model => model.Item1.Semana, "", new { @class = "text-danger" })
         </div>
@@ -64,13 +64,13 @@
 
     <div class="col-md-6">
         @Html.LabelFor(model => model.Item1.Descripcion, new { @class = "control-label" })
-        @Html.TextAreaFor(model => model.Item1.Descripcion, new { @class = "form-control", @cols = "50", @rows = "5" })
+        @Html.TextAreaFor(model => model.Item1.Descripcion, new { @class = "form-control", @cols = "50", @rows = "5", @id = "Descripcion" })
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-12" align="right">
-        <button class="btn btn-primary" ib="btnGuardar" type="submit" onclick="GuardarIncidencia();"> Guardar <i class="fa fa-lg fa-arrow-circle-right"></i></button>
+        <button class="btn btn-primary" id="btnGuardar" type="submit" onclick="GuardarIncidencia();"> Guardar <i class="fa fa-lg fa-arrow-circle-right"></i></button>
     </div>
 </div>
 

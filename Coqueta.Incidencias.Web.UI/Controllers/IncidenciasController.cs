@@ -53,11 +53,12 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult AgregarIncidencia(ReporteIncidencia incide)
+        public ActionResult AgregarIncidencia(ReporteIncidencia incObj)
         {
             //ModeloDatos objIncidencia = new ModeloDatos(cadenaConexion);
             //FuncionHash.GenerarHash
             
+
             return null;
         }
 

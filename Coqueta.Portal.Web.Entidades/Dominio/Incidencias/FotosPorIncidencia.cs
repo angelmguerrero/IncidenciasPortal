@@ -8,8 +8,8 @@ namespace Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias
 {
     public class FotosPorIncidencia
     {
-        public int Id { get; set; }
-        public int IncidenciasId { get; set; }
+        public string Id { get; set; }
+        public string IncidenciasId { get; set; }
         public string Foto { get; set; }
     }
 }

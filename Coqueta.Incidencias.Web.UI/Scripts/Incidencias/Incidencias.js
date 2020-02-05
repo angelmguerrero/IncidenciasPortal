@@ -7,10 +7,10 @@ $(document).ready(function () {
 
 //Load data function
 function cargarFiltrosLotes() {
-    AjaxCallJson("/Incidencias/ObtenerLotes", {}, CallBackCargarFiltros)
+    AjaxCallJson("/Incidencias/ObtenerLotes", {}, CallBackCargarFiltrosLotes)
 }
 
-function CallBackCargarFiltros(data) {
+function CallBackCargarFiltrosLotes(data) {
     var option = "<option value='0'>--Seleccione un Lote--</option>";
     $.each(data, function (index, tipo) {
         option += "<option value='" + tipo.Lotes + "'>" + tipo.Lotes +  "</option>";
@@ -21,7 +21,6 @@ function CallBackCargarFiltros(data) {
 function cargarFiltrosIncidencias() {
     AjaxCallJson("/Incidencias/ObtenerTipoIncidencias", {}, CallBackCargarFiltrosIncidencias, null)
 }
-
 
 function CallBackCargarFiltrosIncidencias(data) {
     var option = "<option value='0'>--Seleccionar Incidencia--</option>";
@@ -39,7 +38,6 @@ $("#cboLotesMontado").change(function () {
         LimpiarCaptura();
 });
 
-
 function CallbackObtenerDatosLotes(datos) {
     $("#Semana").val(datos[0].NumSem);
     $("#txtEstilo").val(datos[0].Estilo);
@@ -53,4 +51,55 @@ function LimpiarCaptura() {
     $("#txtEstilo").val("");
     $("#txtCombinacion").val("");
     $("#txtSuela").val("");
+}
+
+function validate() {
+    var isValid = true;
+    if ($('#cboLotesMontado').val().trim() == "0") {
+        $('#cboLotesMontado').css('border-color', 'Red');
+        isValid = false;
+    }
+    else {
+        $('#cboLotesMontado').css('border-color', 'lightgrey');
+    }
+    if ($('#cboRiel').val().trim() == "0") {
+        $('#cboRiel').css('border-color', 'Red');
+        isValid = false;
+    }
+    else {
+        $('#cboRiel').css('border-color', 'lightgrey');
+    }
+    if ($('#cboTipoIncidencia').val().trim() == "0") {
+        $('#cboTipoIncidencia').css('border-color', 'Red');
+        isValid = false;
+    }
+    else {
+        $('#cboTipoIncidencia').css('border-color', 'lightgrey');
+    }
+
+    return isValid;
+}
+
+
+function GuardarIncidencia() {
+    debugger;
+    var res = validate();
+
+    if (res == false) {
+        return false;
+    }
+
+    var incObj = {
+        Lote: $("#cboLotesMontado").val(),
+        Riel: $("#cboRiel").val(),
+        Semana: $("#Semana").val(),
+        TipoIncidencia: $("#cboTipoIncidencia").val(),
+        Descripcion: $("#Descripcion").val(),
+    };
+
+    AjaxCallJson("/Incidencias/AgregarIncidencia", {incObj} , CallBackGuardarOK)
+}
+
+function CallBackGuardarOK() {
+    NotificacionRegistroGuardado();
 }

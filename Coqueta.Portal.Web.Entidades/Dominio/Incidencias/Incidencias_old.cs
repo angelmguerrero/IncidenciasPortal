@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias
 {
-    public class Incidencias
+    public class Incidencias_old
     {
         public string Id { get; set; }
         public string Lote { get; set; }
@@ -16,6 +16,8 @@ namespace Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias
         public Nullable<int> TotalIncidencias { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> UsuarioId { get; set; }
-        
+
+        public List<FotosPorIncidencia> Foto { get; set; }
+
     }
 }

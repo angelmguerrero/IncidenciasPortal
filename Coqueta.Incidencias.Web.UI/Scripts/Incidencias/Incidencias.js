@@ -40,7 +40,7 @@ $("#cboLotesMontado").change(function () {
 
 function CallbackObtenerDatosLotes(datos) {
     debugger;
-    $("#Semana").val(datos[0].NumSem);
+    $("#Item1_Semana").val(datos[0].NumSem);
     $("#txtEstilo").val(datos[0].Estilo);
     $("#txtCombinacion").val(datos[0].Combinacion);
     $("#txtSuela").val(datos[0].Suela);
@@ -93,7 +93,7 @@ function GuardarIncidencia() {
     var incObj = {
         Lote: $("#cboLotesMontado").val(),
         Riel: $("#cboRiel").val(),
-        Semana: $("#Semana").val(),
+        Semana: $("#Item1_Semana").val(),
         TipoIncidenciaId: $("#cboTipoIncidencia").val(),
         Descripcion: $("#Descripcion").val(),
     };

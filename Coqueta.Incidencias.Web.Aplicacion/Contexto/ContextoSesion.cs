@@ -16,7 +16,7 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Contexto
         {
             get
             {
-                object usuarioSesion = HttpContext.Current.Session["UsuarioAutenticado"];
+                object usuarioSesion = HttpContext.Current.Session[ConstanteSesion.Usuario];
                 if (usuarioSesion != null)
                 {
                     string usrtmp = usuarioSesion.ToString();
@@ -25,6 +25,23 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Contexto
                 else
                 {
                     return null;
+                }
+            }
+        }
+
+        public static int UsuarioID
+        {
+            get
+            {
+                object usuarioSesion = HttpContext.Current.Session[ConstanteSesion.UsuarioId];
+                if (usuarioSesion != null)
+                {
+                    int usrtmp = int.Parse(usuarioSesion.ToString());
+                    return usrtmp;
+                }
+                else
+                {
+                    return 0;
                 }
             }
         }

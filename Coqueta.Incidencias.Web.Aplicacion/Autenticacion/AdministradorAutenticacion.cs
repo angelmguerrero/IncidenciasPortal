@@ -39,8 +39,8 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Autenticacion
             if (Usuario != null)
             {
                 FormsAuthentication.SetAuthCookie(Usuario.Nombre, false);
-                ContextoSesion.AgregarSession(ConstanteSesion.Usuario, Usuario.Nombre);
-                ContextoSesion.AgregarSession(ConstanteSesion.NombreUsuario, Usuario.NombreUsuario);
+                ContextoSesion.AgregarSession(ConstanteSesion.Usuario, Usuario.NombreUsuario);
+                ContextoSesion.AgregarSession(ConstanteSesion.UsuarioId, Usuario.Id.ToString());
 
                 return EnumeradoAutenticacion.AccesoValido;
 

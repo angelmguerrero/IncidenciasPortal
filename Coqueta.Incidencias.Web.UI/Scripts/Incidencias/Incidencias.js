@@ -39,6 +39,7 @@ $("#cboLotesMontado").change(function () {
 });
 
 function CallbackObtenerDatosLotes(datos) {
+    debugger;
     $("#Semana").val(datos[0].NumSem);
     $("#txtEstilo").val(datos[0].Estilo);
     $("#txtCombinacion").val(datos[0].Combinacion);
@@ -93,7 +94,7 @@ function GuardarIncidencia() {
         Lote: $("#cboLotesMontado").val(),
         Riel: $("#cboRiel").val(),
         Semana: $("#Semana").val(),
-        TipoIncidencia: $("#cboTipoIncidencia").val(),
+        TipoIncidenciaId: $("#cboTipoIncidencia").val(),
         Descripcion: $("#Descripcion").val(),
     };
 

@@ -6,8 +6,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using Coqueta.Incidencias.Web.Aplicacion.Incidencias;
+using Coqueta.Incidencias.Web.Aplicacion.Contexto;
+
 using Coqueta.Incidencias.Web.Datos.Contexto;
 using Coqueta.Core.Criptografia;
+using System;
 
 namespace Coqueta.Incidencias.Web.UI.Controllers
 {
@@ -15,13 +18,14 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
     {
         private IAdministradorLotes administradorLotes;
         private IAdministradorIncidencias administradorIncidencias;
+        private ModeloDatos test;
 
         public IncidenciasController()
         {
             string cadenaConexion = ConfigurationManager.ConnectionStrings[ConstanteComun.CadenaConexion].ConnectionString;
             this.administradorLotes = new AdministradorLotes(cadenaConexion);
             this.administradorIncidencias = new AdministradorIncidencias(cadenaConexion);
-            
+            this.test = new ModeloDatos(cadenaConexion);
         }
 
         public ActionResult Index()
@@ -53,13 +57,28 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult AgregarIncidencia(ReporteIncidencia incObj)
+        public ActionResult AgregarIncidencia(Incidencia incObj)
         {
-            //ModeloDatos objIncidencia = new ModeloDatos(cadenaConexion);
-            //FuncionHash.GenerarHash
-            
+            //Incidencia incide = new Incidencia();
 
-            return null;
+            //incide.Id = FuncionHash.GenerarHash();
+            //incide.Lote = incObj.Lote;
+            //incide.Riel = incObj.Riel;
+            //incide.Semana = incObj.Semana;
+            //incide.FechaRegistroIncidencia = DateTime.Now;
+            //incide.TipoIncidenciaId = incObj.TipoIncidencia;
+            //incide.Descripcion = incObj.Descripcion;
+            //incide.UsuarioId = ContextoSesion.UsuarioID;
+
+
+            incObj.Id = FuncionHash.GenerarHash();
+            incObj.FechaRegistroIncidencia = DateTime.Now;
+            incObj.UsuarioId = ContextoSesion.UsuarioID;
+
+            test.Incidencias.Add(incObj);
+            test.SaveChanges();
+
+            return Json(incObj);
         }
 
     }

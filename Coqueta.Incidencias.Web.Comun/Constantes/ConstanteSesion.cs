@@ -10,5 +10,6 @@ namespace Coqueta.Incidencias.Web.Comun.Constantes
     {
         public const string Usuario = "__Usuario__";
         public const string NombreUsuario = "__NombreUsuario__";
+        public const string UsuarioId = "__UsuarioId__";
     }
 }

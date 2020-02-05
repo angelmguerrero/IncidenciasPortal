@@ -8,9 +8,9 @@ namespace Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias
 {
     public class ReporteIncidencia
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Lote { get; set; }
-        public int Riel { get; set; }
+        public Nullable<short> Riel { get; set; }
         public string Semana { get; set; }
         public int TipoIncidencia { get; set; }
         public int TotalIncidencia { get; set; }

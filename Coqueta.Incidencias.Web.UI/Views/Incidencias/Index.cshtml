@@ -1,4 +1,8 @@
-﻿@model Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.ReporteIncidencia
+﻿@*@model Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.ReporteIncidencia*@
+
+@model Tuple<Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.ReporteIncidencia, Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.FotosPorIncidencia>
+
+
 
 @{
     ViewBag.Title = "Agregar Incidencias";
@@ -9,12 +13,12 @@
 @Html.AntiForgeryToken()
 <div class="row">
     <div class="col-md-3 campoCorto">
-        @Html.LabelFor(model => model.Lote, new { @class="control-label"})
-        @Html.DropDownList("cboLotesMontado", new SelectList(Enumerable.Empty<SelectListItem>()), new {  @class = "form-control" })
+        @Html.LabelFor(model => model.Item1.Lote, new { @class = "control-label" })
+        @Html.DropDownList("cboLotesMontado", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control" })
     </div>
 
     <div class="col-md-3">
-        @Html.LabelFor(model => model.Riel, new { @class="control-label" })
+        @Html.LabelFor(model => model.Item1.Riel, new { @class = "control-label" })
         @Html.DropDownList("cboRiel", new List<SelectListItem>
         {
             new SelectListItem{ Text="--Seleccione un Riel--", Value = "0" },
@@ -27,10 +31,10 @@
     </div>
 
     <div class="col-md-3">
-        @Html.LabelFor(model => model.Semana, new { @class = "control-label" })
-        @Html.TextBoxFor(model => model.Semana, new { @readonly = "readonly", @class = "form-control" })
+        @Html.LabelFor(model => model.Item1.Semana, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.Item1.Semana, new { @readonly = "readonly", @class = "form-control" })
         <div>
-            @Html.ValidationMessageFor(model => model.Semana, "", new {  @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Item1.Semana, "", new { @class = "text-danger" })
         </div>
     </div>
 </div>
@@ -54,21 +58,19 @@
 
 <div class="row">
     <div class="col-md-3">
-        @Html.LabelFor(model => model.TipoIncidencia, new {@class="control-label" })
-        @Html.DropDownList("cboTipoIncidencia", new SelectList(Enumerable.Empty<SelectListItem>()), new {@class="form-control" })
+        @Html.LabelFor(model => model.Item1.TipoIncidencia, new { @class = "control-label" })
+        @Html.DropDownList("cboTipoIncidencia", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control" })
     </div>
 
     <div class="col-md-6">
-        @Html.LabelFor(model => model.Descripcion, new {@class="control-label" })
-        @Html.TextAreaFor(model => model.Descripcion, new {@class="form-control", @cols = "50", @rows="5" })
+        @Html.LabelFor(model => model.Item1.Descripcion, new { @class = "control-label" })
+        @Html.TextAreaFor(model => model.Item1.Descripcion, new { @class = "form-control", @cols = "50", @rows = "5" })
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-12" align="right">
         <button class="btn btn-primary" ib="btnGuardar" type="submit" onclick="GuardarIncidencia();"> Guardar <i class="fa fa-lg fa-arrow-circle-right"></i></button>
-        @*<button type="button" class="btn btn-primary" id="btnAdd" onclick="return Add();">Add</button>*@
-
     </div>
 </div>
 

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using Coqueta.Incidencias.Web.Aplicacion.Incidencias;
+using Coqueta.Incidencias.Web.Datos.Contexto;
 
 namespace Coqueta.Incidencias.Web.UI.Controllers
 {
@@ -51,11 +52,11 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         }
 
         [HttpPost]
-        public ActionResult AgregarIncidencia(Incidencia incide)
+        public ActionResult AgregarIncidencia(ReporteIncidencia incide)
         {
-
+            //ModeloDatos objIncidencia = new ModeloDatos(cadenaConexion);
             
-            return null;
+            //return null;
         }
 
     }

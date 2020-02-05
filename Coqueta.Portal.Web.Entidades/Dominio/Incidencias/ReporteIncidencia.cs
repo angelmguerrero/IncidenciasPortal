@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias
 {
-    public class Incidencia
+    public class ReporteIncidencia
     {
         public int Id { get; set; }
         public string Lote { get; set; }

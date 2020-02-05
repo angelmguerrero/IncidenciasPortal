@@ -27,22 +27,22 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="Lote" Type="varchar" MaxLength="50" />
           <Property Name="Riel" Type="smallint" />
           <Property Name="Semana" Type="nchar" MaxLength="2" />
           <Property Name="FechaRegistroIncidencia" Type="datetime" />
-          <Property Name="TipoIncidenciaId" Type="smallint" />
+          <Property Name="TipoIncidenciaId" Type="int" />
           <Property Name="TotalIncidencias" Type="int" />
-          <Property Name="Descripcion" Type="nvarchar" MaxLength="500" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="1000" />
           <Property Name="UsuarioId" Type="int" />
         </EntityType>
         <EntityType Name="rFotoPorlIncidencias">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="lIncidenciasId" Type="int" />
+          <Property Name="Id" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="lIncidenciasId" Type="varchar" MaxLength="40" />
           <Property Name="Foto" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="sParametroAplicacion">
@@ -67,14 +67,14 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Property Name="NumSemana" Type="int" />
         </EntityType>
         <Association Name="FK_lIncidencias_cTipoIncidencia">
-          <End Role="cTipoIncidencia" Type="Self.cTipoIncidencia" Multiplicity="1" />
-          <End Role="lIncidencias" Type="Self.lIncidencias" Multiplicity="0..1" />
+          <End Role="cTipoIncidencia" Type="Self.cTipoIncidencia" Multiplicity="0..1" />
+          <End Role="lIncidencias" Type="Self.lIncidencias" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cTipoIncidencia">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="lIncidencias">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="TipoIncidenciaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -140,6 +140,7 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <EntitySet Name="Incidencias" EntityType="IncidenciasCoquetaModel.Incidencia" />
           <EntitySet Name="FotoPorlIncidencias" EntityType="IncidenciasCoquetaModel.FotoPorlIncidencia" />
           <EntitySet Name="ParametroAplicacions" EntityType="IncidenciasCoquetaModel.ParametroAplicacion" />
+          <EntitySet Name="LotesMontadoes" EntityType="IncidenciasCoquetaModel.LotesMontado" />
           <AssociationSet Name="FK_lIncidencias_cTipoIncidencia" Association="IncidenciasCoquetaModel.FK_lIncidencias_cTipoIncidencia">
             <End Role="cTipoIncidencia" EntitySet="TipoIncidencias" />
             <End Role="lIncidencia" EntitySet="Incidencias" />
@@ -152,7 +153,6 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             <End Role="lIncidencia" EntitySet="Incidencias" />
             <End Role="rFotoPorlIncidencia" EntitySet="FotoPorlIncidencias" />
           </AssociationSet>
-          <EntitySet Name="LotesMontadoes" EntityType="IncidenciasCoquetaModel.LotesMontado" />
         </EntityContainer>
         <EntityType Name="TipoIncidencia">
           <Key>
@@ -161,7 +161,7 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Incidencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Activo" Type="Boolean" />
-          <NavigationProperty Name="lIncidencia" Relationship="IncidenciasCoquetaModel.FK_lIncidencias_cTipoIncidencia" FromRole="cTipoIncidencia" ToRole="lIncidencia" />
+          <NavigationProperty Name="lIncidencias" Relationship="IncidenciasCoquetaModel.FK_lIncidencias_cTipoIncidencia" FromRole="cTipoIncidencia" ToRole="lIncidencia" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -178,14 +178,14 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Lote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Riel" Type="Int16" />
           <Property Name="Semana" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
           <Property Name="FechaRegistroIncidencia" Type="DateTime" Precision="3" />
-          <Property Name="TipoIncidenciaId" Type="Int16" />
+          <Property Name="TipoIncidenciaId" Type="Int32" />
           <Property Name="TotalIncidencias" Type="Int32" />
-          <Property Name="Descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
           <Property Name="UsuarioId" Type="Int32" />
           <NavigationProperty Name="cTipoIncidencia" Relationship="IncidenciasCoquetaModel.FK_lIncidencias_cTipoIncidencia" FromRole="lIncidencia" ToRole="cTipoIncidencia" />
           <NavigationProperty Name="cUsuario" Relationship="IncidenciasCoquetaModel.FK_lIncidencias_cUsuarios" FromRole="lIncidencia" ToRole="cUsuario" />
@@ -195,8 +195,8 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="lIncidenciasId" Type="Int32" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="lIncidenciasId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Foto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="lIncidencia" Relationship="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias" FromRole="rFotoPorlIncidencia" ToRole="lIncidencia" />
         </EntityType>
@@ -208,15 +208,26 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Property Name="Valor" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="LotesMontado">
+          <Key>
+            <PropertyRef Name="Estilo" />
+            <PropertyRef Name="Combinacion" />
+          </Key>
+          <Property Name="Lote" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Estilo" Type="Int32" Nullable="false" />
+          <Property Name="Combinacion" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Suela" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NumSemana" Type="Int32" />
+        </EntityType>
         <Association Name="FK_lIncidencias_cTipoIncidencia">
-          <End Type="IncidenciasCoquetaModel.TipoIncidencia" Role="cTipoIncidencia" Multiplicity="1" />
-          <End Type="IncidenciasCoquetaModel.Incidencia" Role="lIncidencia" Multiplicity="0..1" />
+          <End Type="IncidenciasCoquetaModel.TipoIncidencia" Role="cTipoIncidencia" Multiplicity="0..1" />
+          <End Type="IncidenciasCoquetaModel.Incidencia" Role="lIncidencia" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="cTipoIncidencia">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="lIncidencia">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="TipoIncidenciaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -244,17 +255,6 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="LotesMontado">
-          <Key>
-            <PropertyRef Name="Estilo" />
-            <PropertyRef Name="Combinacion" />
-          </Key>
-          <Property Name="Lote" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="Estilo" Type="Int32" Nullable="false" />
-          <Property Name="Combinacion" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Suela" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="NumSemana" Type="Int32" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

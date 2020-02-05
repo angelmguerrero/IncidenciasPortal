@@ -14,8 +14,8 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
     
     public partial class FotoPorlIncidencia
     {
-        public int Id { get; set; }
-        public Nullable<int> lIncidenciasId { get; set; }
+        public string Id { get; set; }
+        public string lIncidenciasId { get; set; }
         public string Foto { get; set; }
     
         public virtual Incidencia lIncidencia { get; set; }

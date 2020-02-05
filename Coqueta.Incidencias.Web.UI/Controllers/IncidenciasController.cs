@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Web.Mvc;
 using Coqueta.Incidencias.Web.Aplicacion.Incidencias;
 using Coqueta.Incidencias.Web.Datos.Contexto;
+using Coqueta.Core.Criptografia;
 
 namespace Coqueta.Incidencias.Web.UI.Controllers
 {
@@ -55,8 +56,9 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         public ActionResult AgregarIncidencia(ReporteIncidencia incide)
         {
             //ModeloDatos objIncidencia = new ModeloDatos(cadenaConexion);
+            //FuncionHash.GenerarHash
             
-            //return null;
+            return null;
         }
 
     }

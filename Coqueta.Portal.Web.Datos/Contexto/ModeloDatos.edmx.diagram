@@ -9,11 +9,11 @@
         <EntityTypeShape EntityType="IncidenciasCoquetaModel.Usuarios" Width="1.5" PointX="0.75" PointY="5.625" />
         <EntityTypeShape EntityType="IncidenciasCoquetaModel.Incidencia" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="IncidenciasCoquetaModel.FotoPorlIncidencia" Width="1.5" PointX="5.25" PointY="1.75" />
-        <EntityTypeShape EntityType="IncidenciasCoquetaModel.ParametroAplicacion" Width="1.5" PointX="2.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IncidenciasCoquetaModel.ParametroAplicacion" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="IncidenciasCoquetaModel.LotesMontado" Width="1.5" PointX="7.75" PointY="0.75" />
         <AssociationConnector Association="IncidenciasCoquetaModel.FK_lIncidencias_cTipoIncidencia" />
         <AssociationConnector Association="IncidenciasCoquetaModel.FK_lIncidencias_cUsuarios" />
         <AssociationConnector Association="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias" />
-        <EntityTypeShape EntityType="IncidenciasCoquetaModel.LotesMontado" Width="1.5" PointX="5.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

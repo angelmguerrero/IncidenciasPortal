@@ -537,6 +537,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Coqueta.Core.Criptografia\Coqueta.Core.Criptografia.csproj">
+      <Project>{64cd7d07-d7f7-49ce-b511-dc219c07318c}</Project>
+      <Name>Coqueta.Core.Criptografia</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Coqueta.Incidencias.Web.Aplicacion\Coqueta.Incidencias.Web.Aplicacion.csproj">
       <Project>{cee153ff-13d7-4e06-817c-3806d23f8c50}</Project>
       <Name>Coqueta.Incidencias.Web.Aplicacion</Name>

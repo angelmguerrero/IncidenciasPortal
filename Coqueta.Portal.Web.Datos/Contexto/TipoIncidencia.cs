@@ -14,10 +14,17 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
     
     public partial class TipoIncidencia
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TipoIncidencia()
+        {
+            this.lIncidencias = new HashSet<Incidencia>();
+        }
+    
         public int Id { get; set; }
         public string Incidencia { get; set; }
         public Nullable<bool> Activo { get; set; }
     
-        public virtual Incidencia lIncidencia { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Incidencia> lIncidencias { get; set; }
     }
 }

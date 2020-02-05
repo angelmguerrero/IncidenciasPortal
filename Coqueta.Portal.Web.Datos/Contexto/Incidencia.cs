@@ -20,12 +20,12 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
             this.rFotoPorlIncidencias = new HashSet<FotoPorlIncidencia>();
         }
     
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Lote { get; set; }
         public Nullable<short> Riel { get; set; }
         public string Semana { get; set; }
         public Nullable<System.DateTime> FechaRegistroIncidencia { get; set; }
-        public Nullable<short> TipoIncidenciaId { get; set; }
+        public Nullable<int> TipoIncidenciaId { get; set; }
         public Nullable<int> TotalIncidencias { get; set; }
         public string Descripcion { get; set; }
         public Nullable<int> UsuarioId { get; set; }

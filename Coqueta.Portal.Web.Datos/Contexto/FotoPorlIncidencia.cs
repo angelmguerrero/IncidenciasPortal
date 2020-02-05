@@ -16,7 +16,8 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
     {
         public string Id { get; set; }
         public string lIncidenciasId { get; set; }
-        public string Foto { get; set; }
+        public string FotoName { get; set; }
+        public string ImageUrl { get; set; }
     
         public virtual Incidencia lIncidencia { get; set; }
     }

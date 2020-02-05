@@ -43,7 +43,8 @@
           </Key>
           <Property Name="Id" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="lIncidenciasId" Type="varchar" MaxLength="40" />
-          <Property Name="Foto" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageUrl" Type="nvarchar(max)" />
+          <Property Name="FotoName" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sParametroAplicacion">
           <Key>
@@ -138,7 +139,6 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <EntitySet Name="TipoIncidencias" EntityType="IncidenciasCoquetaModel.TipoIncidencia" />
           <EntitySet Name="Usuarios" EntityType="IncidenciasCoquetaModel.Usuarios" />
           <EntitySet Name="Incidencias" EntityType="IncidenciasCoquetaModel.Incidencia" />
-          <EntitySet Name="FotoPorlIncidencias" EntityType="IncidenciasCoquetaModel.FotoPorlIncidencia" />
           <EntitySet Name="ParametroAplicacions" EntityType="IncidenciasCoquetaModel.ParametroAplicacion" />
           <EntitySet Name="LotesMontadoes" EntityType="IncidenciasCoquetaModel.LotesMontado" />
           <AssociationSet Name="FK_lIncidencias_cTipoIncidencia" Association="IncidenciasCoquetaModel.FK_lIncidencias_cTipoIncidencia">
@@ -149,8 +149,9 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             <End Role="cUsuario" EntitySet="Usuarios" />
             <End Role="lIncidencia" EntitySet="Incidencias" />
           </AssociationSet>
+          <EntitySet Name="FotoPorlIncidencias" EntityType="IncidenciasCoquetaModel.FotoPorlIncidencia" />
           <AssociationSet Name="FK_rFotoPorlIncidencias_lIncidencias" Association="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias">
-            <End Role="lIncidencia" EntitySet="Incidencias" />
+            <End Role="Incidencia" EntitySet="Incidencias" />
             <End Role="rFotoPorlIncidencia" EntitySet="FotoPorlIncidencias" />
           </AssociationSet>
         </EntityContainer>
@@ -189,16 +190,7 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Property Name="UsuarioId" Type="Int32" />
           <NavigationProperty Name="cTipoIncidencia" Relationship="IncidenciasCoquetaModel.FK_lIncidencias_cTipoIncidencia" FromRole="lIncidencia" ToRole="cTipoIncidencia" />
           <NavigationProperty Name="cUsuario" Relationship="IncidenciasCoquetaModel.FK_lIncidencias_cUsuarios" FromRole="lIncidencia" ToRole="cUsuario" />
-          <NavigationProperty Name="rFotoPorlIncidencias" Relationship="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias" FromRole="lIncidencia" ToRole="rFotoPorlIncidencia" />
-        </EntityType>
-        <EntityType Name="FotoPorlIncidencia">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="lIncidenciasId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="Foto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="lIncidencia" Relationship="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias" FromRole="rFotoPorlIncidencia" ToRole="lIncidencia" />
+          <NavigationProperty Name="rFotoPorlIncidencias" Relationship="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias" FromRole="Incidencia" ToRole="rFotoPorlIncidencia" />
         </EntityType>
         <EntityType Name="ParametroAplicacion">
           <Key>
@@ -243,11 +235,21 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="FotoPorlIncidencia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="lIncidenciasId" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="FotoName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="lIncidencia" Relationship="IncidenciasCoquetaModel.FK_rFotoPorlIncidencias_lIncidencias" FromRole="rFotoPorlIncidencia" ToRole="Incidencia" />
+          <Property Name="ImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <Association Name="FK_rFotoPorlIncidencias_lIncidencias">
-          <End Type="IncidenciasCoquetaModel.Incidencia" Role="lIncidencia" Multiplicity="0..1" />
+          <End Type="IncidenciasCoquetaModel.Incidencia" Role="Incidencia" Multiplicity="0..1" />
           <End Type="IncidenciasCoquetaModel.FotoPorlIncidencia" Role="rFotoPorlIncidencia" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="lIncidencia">
+            <Principal Role="Incidencia">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="rFotoPorlIncidencia">
@@ -296,15 +298,6 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FotoPorlIncidencias">
-            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.FotoPorlIncidencia">
-              <MappingFragment StoreEntitySet="rFotoPorlIncidencias">
-                <ScalarProperty Name="Foto" ColumnName="Foto" />
-                <ScalarProperty Name="lIncidenciasId" ColumnName="lIncidenciasId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ParametroAplicacions">
             <EntityTypeMapping TypeName="IncidenciasCoquetaModel.ParametroAplicacion">
               <MappingFragment StoreEntitySet="sParametroAplicacion">
@@ -322,6 +315,16 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
                 <ScalarProperty Name="Combinacion" ColumnName="Combinacion" />
                 <ScalarProperty Name="Estilo" ColumnName="Estilo" />
                 <ScalarProperty Name="Lote" ColumnName="Lote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FotoPorlIncidencias">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.FotoPorlIncidencia">
+              <MappingFragment StoreEntitySet="rFotoPorlIncidencias">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="FotoName" ColumnName="FotoName" />
+                <ScalarProperty Name="lIncidenciasId" ColumnName="lIncidenciasId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -89,6 +89,9 @@ namespace Coqueta.Incidencias.Web.UI
                 "~/Componentes/jAlert/jAlert-functions.min.js",
                 "~/Componentes/jTimeout/jTimeout.min.js",
                 "~/Scripts/Coqueta.Core.js",
+                "~/Scripts/jquery.validate.min.js",
+                "~/Scripts/jquery.validate.unobtrusive.min.js",
+                //"~/Scripts/jquery-1.10.2.min.js",
                 "~/Scripts/Layout/LayoutPrivado.js"));
             #endregion
 

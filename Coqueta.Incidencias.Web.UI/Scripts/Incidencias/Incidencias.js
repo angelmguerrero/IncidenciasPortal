@@ -99,7 +99,9 @@ function GuardarIncidencia() {
         Descripcion: $("#Descripcion").val(),
     };
 
-    AjaxCallJson("/Incidencias/AgregarIncidencia", {incObj} , CallBackGuardarOK)
+     
+
+    AjaxCallJson("/Incidencias/AgregarIncidencia", { } , CallBackGuardarOK)
 }
 
 function CallBackGuardarOK() {
@@ -109,4 +111,16 @@ function CallBackGuardarOK() {
     cargarFiltrosIncidencias();
     NotificacionRegistroGuardado();
     $("#cboRiel").val("0");
+}
+
+
+function show(input) {
+    debugger;
+    if (input.files && input.files[0]) {
+        var filerdr = new FileReader();
+        filerdr.onload = function (e) {
+            $('#user_img').attr('src', e.target.result);
+        }
+        filerdr.readAsDataURL(input.files[0]);
+    }
 }

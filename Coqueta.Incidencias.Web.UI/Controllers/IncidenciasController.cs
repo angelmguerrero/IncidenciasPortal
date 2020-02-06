@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Coqueta.Incidencias.Web.Comun.Enumerados;
 
 
 
@@ -66,7 +67,9 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         [HttpPost]
         public ActionResult AgregarIncidencia(Incidencia incObj)
         {
-            //ContextoConfiguracion
+            string rutaImagen = ContextoConfiguracion.ObtenerValorParametro(EnumeradorParametro.UsuarioRepositorioFotos);
+
+            
             
             // Checking no of files injected in Request object  
             if (Request.Files.Count > 0)
@@ -97,7 +100,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
                         }
 
                         // Get the complete folder path and store the file inside it.  
-                        fname = Path.Combine("C:\\Uploads\\", fname);
+                        fname = Path.Combine(rutaImagen, fname);
 
                         file.SaveAs(fname);
                     }

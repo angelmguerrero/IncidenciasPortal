@@ -3,23 +3,22 @@ using Coqueta.Incidencias.Web.Datos.Repositorio;
 using Coqueta.Incidencias.Web.Entidades.Contratos;
 using Coqueta.Incidencias.Web.Entidades.Dominio.Configuracion;
 
+using Coqueta.Incidencias.Web.Comun.Constantes;
+
+using System.Configuration;
+
 
 namespace Coqueta.Incidencias.Web.Aplicacion.Contexto
 {
     public class ContextoConfiguracion
     {
-        private string cadenaConexion;
-
-        public ContextoConfiguracion(string cadenaConexion)
-        {
-            this.cadenaConexion = cadenaConexion;
-        }
-
-
+    
 
         #region Métodos Publicos
-        public string ObtenerValorParametro(EnumeradorParametro enumeradoParametro)
+        public static string ObtenerValorParametro(EnumeradorParametro enumeradoParametro)
         {
+            string cadenaConexion = ConfigurationManager.ConnectionStrings[ConstanteComun.CadenaConexion].ConnectionString;
+
             IRepositorioParametros repositorioParametros = new RepositorioParametros(cadenaConexion);
             Parametros parametro = repositorioParametros.ObtenerValorParametro(enumeradoParametro);
 

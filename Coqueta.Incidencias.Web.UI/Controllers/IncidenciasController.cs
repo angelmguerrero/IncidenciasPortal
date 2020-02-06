@@ -26,10 +26,12 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         private IAdministradorLotes administradorLotes;
         private IAdministradorIncidencias administradorIncidencias;
         private ModeloDatos DataModel;
+        string cadenaConexion = ConfigurationManager.ConnectionStrings[ConstanteComun.CadenaConexion].ConnectionString;
+
 
         public IncidenciasController()
         {
-            string cadenaConexion = ConfigurationManager.ConnectionStrings[ConstanteComun.CadenaConexion].ConnectionString;
+            //string cadenaConexion = ConfigurationManager.ConnectionStrings[ConstanteComun.CadenaConexion].ConnectionString;
             this.administradorLotes = new AdministradorLotes(cadenaConexion);
             this.administradorIncidencias = new AdministradorIncidencias(cadenaConexion);
             this.DataModel = new ModeloDatos(cadenaConexion);
@@ -41,7 +43,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
             return View();
         }
 
-  
+
         [HttpPost]
         public ActionResult ObtenerLotes()
         {
@@ -67,24 +69,30 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
         [HttpPost]
         public ActionResult AgregarIncidencia(Incidencia incObj)
         {
-            string rutaImagen = ContextoConfiguracion.ObtenerValorParametro(EnumeradorParametro.UsuarioRepositorioFotos);
+            string rutaImagen = ContextoConfiguracion.ObtenerValorParametro(EnumeradorParametro.RepositorioFotos);
 
-            
-            
-            // Checking no of files injected in Request object  
-            if (Request.Files.Count > 0)
+            try
             {
-                try
+                incObj.Id = FuncionHash.GenerarHash();
+                incObj.FechaRegistroIncidencia = DateTime.Now;
+                incObj.UsuarioId = ContextoSesion.UsuarioID;
+                DataModel.Incidencias.Add(incObj);
+                DataModel.SaveChanges();
+
+                FotoPorlIncidencia foto = new FotoPorlIncidencia();
+
+                //Request.Form["username"]
+                // Checking no of files injected in Request object  
+                if (Request.Files.Count > 0)
                 {
+                    foto.Id = FuncionHash.GenerarHash();
+
+
                     //  Get all files from Request object  
                     HttpFileCollectionBase files = Request.Files;
                     for (int i = 0; i < files.Count; i++)
                     {
-                        //string path = AppDomain.CurrentDomain.BaseDirectory + "Uploads/";  
-                        //string filename = Path.GetFileName(Request.Files[i].FileName);  
-
                         HttpPostedFileBase file = files[i];
-
 
                         string fname;
 
@@ -96,39 +104,37 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
                         }
                         else
                         {
-                            fname = file.FileName;
+                            fname = foto.Id + "_" + file.FileName;
                         }
 
                         // Get the complete folder path and store the file inside it.  
                         fname = Path.Combine(rutaImagen, fname);
 
                         file.SaveAs(fname);
+
+                        //Save in DB
+
+                        foto.lIncidenciasId = incObj.Id;
+                        foto.ImageUrl = rutaImagen;
+                        foto.FotoName = fname;
+                        DataModel.FotoPorlIncidencias.Add(foto);
+                        DataModel.SaveChanges();
                     }
+
                     // Returns message that successfully uploaded  
-                    return Json("File Uploaded Successfully!");
+                    //return Json("File Uploaded Successfully!");
+
+                    return Json(incObj);
+
                 }
-                catch (Exception ex)
-                {
-                    return Json("Error occurred. Error details: " + ex.Message);
-                }
+
             }
-            else
+            catch (Exception ex)
             {
-                return Json("No files selected.");
+                return Json("Error occurred. Error details: " + ex.Message);
             }
 
-            //incObj.Id = FuncionHash.GenerarHash();
-            //incObj.FechaRegistroIncidencia = DateTime.Now;
-            //incObj.UsuarioId = ContextoSesion.UsuarioID;
-            //DataModel.Incidencias.Add(incObj);
-            //DataModel.SaveChanges();
-
-            //return Json(incObj);
-
+            return Json(incObj);
         }
-
-
-      
-
     }
 }

@@ -78,15 +78,14 @@ function validate() {
     else {
         $('#cboTipoIncidencia').css('border-color', 'lightgrey');
     }
-
-    if (jQuery('#FileUpload').val()) {
-        $('#FileUpload').css('border-color', 'Red');
+    if ($('#FileUpload').val().trim() == "") {
+        $('#FileUpload').css('border-color', 'red');
         isValid = false;
     }
     else {
         $('#FileUpload').css('border-color', 'lightgrey');
     }
-
+    return isValid;
 }
 
 
@@ -94,55 +93,61 @@ function GuardarIncidencia() {
     debugger;
     var res = validate();
 
-    if (res == false) {
-        return false;
+    if (res == true) {
+        // Checking whether FormData is available in browser
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#FileUpload").get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Adding one more key to FormData object
+            fileData.append("Lote", $("#cboLotesMontado").val());
+            fileData.append("Riel", $("#cboRiel").val());
+            fileData.append("Semana", $("#Semana").val());
+            fileData.append("TipoIncidenciaId", $("#cboTipoIncidencia").val());
+            fileData.append("Descripcion", $("#Descripcion").val());
+
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+            $.ajax({
+                url: '/Incidencias/AgregarIncidencia',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+                data: fileData,
+                success: function (result) {
+                    CallBackGuardarOK();
+                },
+                error: function (err) {
+                    alert(err.statusText);
+                }
+            });
+        } else {
+            alert("FormData is not supported.");
+        }
+
+    }
+    else {
+        MostrarMensajeNotificacion("Favor de llenar los campos marcados en rojo");
     }
 
    
-    // Checking whether FormData is available in browser
-    if (window.FormData !== undefined) {
-
-        var fileUpload = $("#FileUpload").get(0);
-        var files = fileUpload.files;
-
-        // Create FormData object
-        var fileData = new FormData();
-        fileData.append("Lote", $("#cboLotesMontado").val());
-        fileData.append("Riel", $("#cboRiel").val());
-        fileData.append("Semana", $("#Semana").val());
-        fileData.append("TipoIncidenciaId", $("#cboTipoIncidencia").val());
-        fileData.append("Descripcion", $("#Descripcion").val());
-
-
-        // Looping over all files and add it to FormData object
-        for (var i = 0; i < files.length; i++) {
-            fileData.append(files[i].name, files[i]);
-        }
-
-        $.ajax({
-            url: '/Incidencias/AgregarIncidencia',
-            type: "POST",
-            contentType: false, // Not to set any content header
-            processData: false, // Not to process data
-            data: fileData,
-            success: function (result) {
-                CallBackGuardarOK();
-            },
-            error: function (err) {
-                alert(err.statusText);
-            }
-        });
-    } else {
-        alert("FormData is not supported.");
-    }
+   
 }
 
 function CallBackGuardarOK() {
     LimpiarCaptura();
     cargarFiltrosLotes();
     cargarFiltrosIncidencias();
-    NotificacionRegistroGuardado();
     $("#cboRiel").val("0");
+    NotificacionRegistroGuardado();
 }
 
 

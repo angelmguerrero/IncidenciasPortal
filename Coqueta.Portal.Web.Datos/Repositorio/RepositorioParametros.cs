@@ -15,14 +15,12 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
     {
         #region Campos
         private string cadenaConexion;
-        ModeloDatos db;
         #endregion
 
         #region Constructor
         public RepositorioParametros(string cadenaConexion)
         {
             this.cadenaConexion = cadenaConexion;
-            this.db = new ModeloDatos(cadenaConexion);
 
         }
         #endregion
@@ -31,13 +29,16 @@ namespace Coqueta.Incidencias.Web.Datos.Repositorio
         #region Métodos Públicos
         Parametros IRepositorioParametros.ObtenerValorParametro(EnumeradorParametro enumeradoParametro)
         {
-               
-                var param = db.ParametroAplicacions.Where(a => a.Id.Equals("UsuarioRepositorioFotos")).FirstOrDefault();
+            ModeloDatos db = new ModeloDatos(cadenaConexion);
+
+            string parametro2 = enumeradoParametro.ToString();
+
+            var param = db.ParametroAplicacions.Where(a => a.Id.Equals(parametro2)).FirstOrDefault();
                 if (param != null)
                 {
                     Parametros parametro = new Parametros();
                     parametro.Id = param.Id;
-                    parametro.Valor = parametro.Valor;
+                    parametro.Valor = param.Valor;
                     return parametro;
                 }
                 else

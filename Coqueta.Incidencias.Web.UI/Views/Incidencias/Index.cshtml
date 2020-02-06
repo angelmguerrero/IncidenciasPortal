@@ -2,14 +2,20 @@
 
 @model Tuple<Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.ReporteIncidencia, Coqueta.Incidencias.Web.Datos.Contexto.FotoPorlIncidencia>
 
-
-
 @{
     ViewBag.Title = "Agregar Incidencias";
     Layout = "~/Views/Shared/LayoutPrivado.cshtml";
 }
 
-
+<style>
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        background: #fff;
+    }
+</style>
 @Html.AntiForgeryToken()
 <div class="row">
     <div class="col-md-3 campoCorto">
@@ -73,7 +79,7 @@
         @*  CARGAR FOTOS  *@
         <div> <img id="user_img" height="200" width="180" style="border:solid" /> </div>
 
-        <input type="file" id="FileUpload" required accept="image/jpg,image/png,image/jpeg" onchange="show(this)" />
+        <input type="file" id="FileUpload" required accept="image/jpg,image/png,image/jpeg" onchange="show(this)" class="custom-file-upload" />
 
 
     </div>

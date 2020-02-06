@@ -8,6 +8,6 @@ namespace Coqueta.Incidencias.Web.Comun.Enumerados
 {
     public enum EnumeradorParametro
     {
-        UsuarioRepositorioFotos
+        RepositorioFotos
     }
 }

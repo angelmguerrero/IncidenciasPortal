@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Coqueta.Incidencias.Web.Comun.Constantes;
 using System.Web;
-using Coqueta.Incidencias.Web.Comun.Constantes;
-using Coqueta.Incidencias.Web.Comun.Enumerados;
-using Coqueta.Incidencias.Web.Entidades.Dominio.Usuario;
 
 namespace Coqueta.Incidencias.Web.Aplicacion.Contexto
 {

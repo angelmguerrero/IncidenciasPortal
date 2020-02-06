@@ -79,7 +79,14 @@ function validate() {
         $('#cboTipoIncidencia').css('border-color', 'lightgrey');
     }
 
-    return isValid;
+    if (jQuery('#FileUpload').val()) {
+        $('#FileUpload').css('border-color', 'Red');
+        isValid = false;
+    }
+    else {
+        $('#FileUpload').css('border-color', 'lightgrey');
+    }
+
 }
 
 
@@ -91,22 +98,47 @@ function GuardarIncidencia() {
         return false;
     }
 
-    var incObj = {
-        Lote: $("#cboLotesMontado").val(),
-        Riel: $("#cboRiel").val(),
-        Semana: $("#Semana").val(),
-        TipoIncidenciaId: $("#cboTipoIncidencia").val(),
-        Descripcion: $("#Descripcion").val(),
-    };
+   
+    // Checking whether FormData is available in browser
+    if (window.FormData !== undefined) {
 
-     
+        var fileUpload = $("#FileUpload").get(0);
+        var files = fileUpload.files;
 
-    AjaxCallJson("/Incidencias/AgregarIncidencia", { } , CallBackGuardarOK)
+        // Create FormData object
+        var fileData = new FormData();
+        fileData.append("Lote", $("#cboLotesMontado").val());
+        fileData.append("Riel", $("#cboRiel").val());
+        fileData.append("Semana", $("#Semana").val());
+        fileData.append("TipoIncidenciaId", $("#cboTipoIncidencia").val());
+        fileData.append("Descripcion", $("#Descripcion").val());
+
+
+        // Looping over all files and add it to FormData object
+        for (var i = 0; i < files.length; i++) {
+            fileData.append(files[i].name, files[i]);
+        }
+
+        $.ajax({
+            url: '/Incidencias/AgregarIncidencia',
+            type: "POST",
+            contentType: false, // Not to set any content header
+            processData: false, // Not to process data
+            data: fileData,
+            success: function (result) {
+                CallBackGuardarOK();
+            },
+            error: function (err) {
+                alert(err.statusText);
+            }
+        });
+    } else {
+        alert("FormData is not supported.");
+    }
 }
 
 function CallBackGuardarOK() {
-    debugger;
-    LimpiarCaptura()
+    LimpiarCaptura();
     cargarFiltrosLotes();
     cargarFiltrosIncidencias();
     NotificacionRegistroGuardado();
@@ -115,7 +147,6 @@ function CallBackGuardarOK() {
 
 
 function show(input) {
-    debugger;
     if (input.files && input.files[0]) {
         var filerdr = new FileReader();
         filerdr.onload = function (e) {

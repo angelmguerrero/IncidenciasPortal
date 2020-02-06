@@ -71,58 +71,16 @@
 <div class="row">
     <div class="col-md-6">
         @*  CARGAR FOTOS  *@
-        <div class="form-horizontal">
-            <h4>lens</h4>
-            <hr />
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div> <img id="user_img" height="200" width="180" style="border:solid" /> </div>
+
+        <input type="file" id="FileUpload" required accept="image/jpg,image/png,image/jpeg" onchange="show(this)" />
 
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.Item2.FotoName, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <input type="file" name="file" id="file" style="width: 100%;" />
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
-
-        </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-md-9" align="right">
+    <div class="col-md-6" align="right">
         <button class="btn btn-primary" id="btnGuardar" type="submit" onclick="GuardarIncidencia();"> Guardar <i class="fa fa-lg fa-arrow-circle-right"></i></button>
     </div>
 </div>
-
-
-<input type="file" id="imageUploadForm" name="image" multiple="multiple" />
-
-
-
-
-@*@using (Html.BeginForm("AgregarIncidencia", "Incidencias", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-        <div> <img id="user_img" height="100" width="90" style="border:solid" /> </div>
-        <div>
-            <input type="file" title="search image" id="file" name="file" onchange="show(this)" />
-        </div>*@
-
-
-@*<div>
-        <input type="submit" title="save" />
-    </div>*@
-
-
-@*}
-
-    <script src="~/Scripts/jquery-1.7.1.min.js"></script>*@
-
-
 
 
 <script src="~/Scripts/Incidencias/Incidencias.js"></script>

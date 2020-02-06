@@ -122,9 +122,9 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
                     }
 
                     // Returns message that successfully uploaded  
-                    //return Json("File Uploaded Successfully!");
+                    return Json("File Uploaded Successfully!");
 
-                    return Json(incObj);
+                    //return Json(incObj);
 
                 }
 

@@ -39,7 +39,6 @@ $("#cboLotesMontado").change(function () {
 });
 
 function CallbackObtenerDatosLotes(datos) {
-    debugger;
     $("#Semana").val(datos[0].NumSem);
     $("#txtEstilo").val(datos[0].Estilo);
     $("#txtCombinacion").val(datos[0].Combinacion);
@@ -53,6 +52,8 @@ function LimpiarCaptura() {
     $("#txtCombinacion").val("");
     $("#txtSuela").val("");
     $("#Descripcion").val("");
+    $('#FileUpload').val("");
+    $('#user_img').attr('src', '');
 }
 
 function validate() {
@@ -90,7 +91,6 @@ function validate() {
 
 
 function GuardarIncidencia() {
-    debugger;
     var res = validate();
 
     if (res == true) {
@@ -147,7 +147,12 @@ function CallBackGuardarOK() {
     cargarFiltrosLotes();
     cargarFiltrosIncidencias();
     $("#cboRiel").val("0");
+    
     NotificacionRegistroGuardado();
+
+
+  
+
 }
 
 

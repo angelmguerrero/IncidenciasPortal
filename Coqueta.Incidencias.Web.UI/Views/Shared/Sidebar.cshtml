@@ -3,7 +3,7 @@
 <div class="aside-inner">
     <nav data-sidebar-anyclick-close="" class="sidebar">
         <ul id="ulMenu" class="nav ayudaPrincipalPaso1">
-            <li id="Inicio" class="@Html.MenuActivo(string.Empty, "Incidencia", "Index")">
+            <li id="Inicio" class="@Html.MenuActivo(string.Empty, "Home", "Index")">
                 <a href="/Incidencias/Index" class="titulo" title="Inicio">
                     <i class="icon-home"></i>
                     <span>Inicio</span>
@@ -51,13 +51,13 @@
                 </ul>
             </li>*@
 
-            @*<li id="ProductoDisponible" class="@Html.MenuActivo(EnumeradoPermiso.P0004.ToString(), "Catalogo", "Disponible")">
-                <a href="/Catalogo/Disponible" class="titulo" title="Servicio Express">
-                    <i class="icon-handbag"></i>
-                    <span>Servicio Express<br /><strong style="font-size: 10px;">(Captura de Producto Disponible)</strong></span>
+            <li id="RegistroIncidencias">
+                <a href="/Incidencias/Index" class="titulo" title="Registrar Incidencia">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    <span>Registrar Incidencia<br /><strong style="font-size: 10px;">(Captura de Incidencias en Producción)</strong></span>
 
                 </a>
-            </li>*@
+            </li>
 
             @*<li id="CatalogoProductos" class="@Html.MenuActivo(EnumeradoPermiso.P0004.ToString())">
                 <a href="#ulCatalogo" class="titulo" data-toggle="collapse" title="Catálogo de Productos">

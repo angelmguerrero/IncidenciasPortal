@@ -5,6 +5,7 @@ using Coqueta.Incidencias.Web.Entidades.Dominio.Usuario;
 using System.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
+using Coqueta.Incidencias.Web.Datos.Contexto;
 
 namespace Coqueta.Incidencias.Web.UI.Controllers
 {
@@ -19,21 +20,16 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
             this.administradorAutenticacion = new AdministradorAutenticacion(cadenaConexion);
         }
 
-
-
         [HttpGet]
-      
         public ActionResult Login()
         {
 
             return this.View();
         }
 
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Usuario per)
+        public ActionResult Login(Usuarios per)
         {
             if (this.ModelState.IsValid)
             {
@@ -42,7 +38,7 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
                 switch (resultadoAutenticacion)
                 {
                     case EnumeradoAutenticacion.AccesoValido:
-                        return this.RedirectToAction("Index", "Incidencias");
+                        return this.RedirectToAction("Index", "Home");
                     default:
                         this.ModelState.AddModelError(string.Empty, "Usuario no existe o contraseña es inválida.");
                         break;
@@ -52,21 +48,13 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
             return this.View("Login", per);
         }
 
-
         [HttpGet]
         public ActionResult CerrarSesion()
         {
-
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Acceso");
 
-
-
-          
         }
-
-
-
 
     }
 }

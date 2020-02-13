@@ -60,12 +60,15 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Key>
             <PropertyRef Name="Estilo" />
             <PropertyRef Name="Combinacion" />
+            <PropertyRef Name="Pares" />
           </Key>
           <Property Name="Lote" Type="varchar" MaxLength="60" />
           <Property Name="Estilo" Type="int" Nullable="false" />
           <Property Name="Combinacion" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="Suela" Type="nvarchar" MaxLength="20" />
           <Property Name="NumSemana" Type="int" />
+          <Property Name="banda" Type="smallint" />
+          <Property Name="Pares" Type="smallint" Nullable="false" />
         </EntityType>
         <Association Name="FK_lIncidencias_cTipoIncidencia">
           <End Role="cTipoIncidencia" Type="Self.cTipoIncidencia" Multiplicity="0..1" />
@@ -115,7 +118,9 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
     [uvwLotesMontado].[Estilo] AS [Estilo], 
     [uvwLotesMontado].[Combinacion] AS [Combinacion], 
     [uvwLotesMontado].[Suela] AS [Suela], 
-    [uvwLotesMontado].[NumSemana] AS [NumSemana]
+    [uvwLotesMontado].[NumSemana] AS [NumSemana], 
+    [uvwLotesMontado].[banda] AS [banda], 
+    [uvwLotesMontado].[Pares] AS [Pares]
     FROM [dbo].[uvwLotesMontado] AS [uvwLotesMontado]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_lIncidencias_cTipoIncidencia" Association="Self.FK_lIncidencias_cTipoIncidencia">
@@ -140,7 +145,6 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <EntitySet Name="Usuarios" EntityType="IncidenciasCoquetaModel.Usuarios" />
           <EntitySet Name="Incidencias" EntityType="IncidenciasCoquetaModel.Incidencia" />
           <EntitySet Name="ParametroAplicacions" EntityType="IncidenciasCoquetaModel.ParametroAplicacion" />
-          <EntitySet Name="LotesMontadoes" EntityType="IncidenciasCoquetaModel.LotesMontado" />
           <AssociationSet Name="FK_lIncidencias_cTipoIncidencia" Association="IncidenciasCoquetaModel.FK_lIncidencias_cTipoIncidencia">
             <End Role="cTipoIncidencia" EntitySet="TipoIncidencias" />
             <End Role="lIncidencia" EntitySet="Incidencias" />
@@ -154,6 +158,7 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             <End Role="Incidencia" EntitySet="Incidencias" />
             <End Role="rFotoPorlIncidencia" EntitySet="FotoPorlIncidencias" />
           </AssociationSet>
+          <EntitySet Name="LotesMontadoes" EntityType="IncidenciasCoquetaModel.LotesMontado" />
         </EntityContainer>
         <EntityType Name="TipoIncidencia">
           <Key>
@@ -199,17 +204,6 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
           <Property Name="Id" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="Valor" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="LotesMontado">
-          <Key>
-            <PropertyRef Name="Estilo" />
-            <PropertyRef Name="Combinacion" />
-          </Key>
-          <Property Name="Lote" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
-          <Property Name="Estilo" Type="Int32" Nullable="false" />
-          <Property Name="Combinacion" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
-          <Property Name="Suela" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="NumSemana" Type="Int32" />
         </EntityType>
         <Association Name="FK_lIncidencias_cTipoIncidencia">
           <End Type="IncidenciasCoquetaModel.TipoIncidencia" Role="cTipoIncidencia" Multiplicity="0..1" />
@@ -257,6 +251,20 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="LotesMontado">
+          <Key>
+            <PropertyRef Name="Estilo" />
+            <PropertyRef Name="Combinacion" />
+            <PropertyRef Name="Pares" />
+          </Key>
+          <Property Name="Lote" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Estilo" Type="Int32" Nullable="false" />
+          <Property Name="Combinacion" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Suela" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NumSemana" Type="Int32" />
+          <Property Name="banda" Type="Int16" />
+          <Property Name="Pares" Type="Int16" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -307,17 +315,6 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="LotesMontadoes">
-            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.LotesMontado">
-              <MappingFragment StoreEntitySet="uvwLotesMontado">
-                <ScalarProperty Name="NumSemana" ColumnName="NumSemana" />
-                <ScalarProperty Name="Suela" ColumnName="Suela" />
-                <ScalarProperty Name="Combinacion" ColumnName="Combinacion" />
-                <ScalarProperty Name="Estilo" ColumnName="Estilo" />
-                <ScalarProperty Name="Lote" ColumnName="Lote" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="FotoPorlIncidencias">
             <EntityTypeMapping TypeName="IncidenciasCoquetaModel.FotoPorlIncidencia">
               <MappingFragment StoreEntitySet="rFotoPorlIncidencias">
@@ -325,6 +322,19 @@ warning 6002: The table/view 'IncidenciasCoqueta.dbo.uvwLotesMontado' does not h
                 <ScalarProperty Name="FotoName" ColumnName="FotoName" />
                 <ScalarProperty Name="lIncidenciasId" ColumnName="lIncidenciasId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LotesMontadoes">
+            <EntityTypeMapping TypeName="IncidenciasCoquetaModel.LotesMontado">
+              <MappingFragment StoreEntitySet="uvwLotesMontado">
+                <ScalarProperty Name="Pares" ColumnName="Pares" />
+                <ScalarProperty Name="banda" ColumnName="banda" />
+                <ScalarProperty Name="NumSemana" ColumnName="NumSemana" />
+                <ScalarProperty Name="Suela" ColumnName="Suela" />
+                <ScalarProperty Name="Combinacion" ColumnName="Combinacion" />
+                <ScalarProperty Name="Estilo" ColumnName="Estilo" />
+                <ScalarProperty Name="Lote" ColumnName="Lote" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

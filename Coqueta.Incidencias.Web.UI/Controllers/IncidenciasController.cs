@@ -31,7 +31,6 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
 
         public IncidenciasController()
         {
-            //string cadenaConexion = ConfigurationManager.ConnectionStrings[ConstanteComun.CadenaConexion].ConnectionString;
             this.administradorLotes = new AdministradorLotes(cadenaConexion);
             this.administradorIncidencias = new AdministradorIncidencias(cadenaConexion);
             this.DataModel = new ModeloDatos(cadenaConexion);
@@ -45,9 +44,9 @@ namespace Coqueta.Incidencias.Web.UI.Controllers
 
 
         [HttpPost]
-        public ActionResult ObtenerLotes()
+        public ActionResult ObtenerLotes(int banda)
         {
-            List<Lote> resultadoLotes = this.administradorLotes.ObtenerListadoLotes();
+            List<Lote> resultadoLotes = this.administradorLotes.ObtenerListadoLotes(banda);
             return Json(resultadoLotes);
         }
 

@@ -8,6 +8,6 @@ namespace Coqueta.Incidencias.Web.Comun.Constantes
 {
     public class ConstanteVersion
     {
-        public const string VersionAplicacion = "1.0.0";
+        public const string VersionAplicacion = "1.1.0";
     }
 }

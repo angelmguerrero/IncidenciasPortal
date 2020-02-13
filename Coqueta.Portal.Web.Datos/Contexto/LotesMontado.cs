@@ -19,5 +19,7 @@ namespace Coqueta.Incidencias.Web.Datos.Contexto
         public string Combinacion { get; set; }
         public string Suela { get; set; }
         public Nullable<int> NumSemana { get; set; }
+        public Nullable<short> banda { get; set; }
+        public short Pares { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace Coqueta.Incidencias.Web.Aplicacion.Lotes
 {
     public interface IAdministradorLotes
     {
-        List<Lote> ObtenerListadoLotes();
+        List<Lote> ObtenerListadoLotes(int banda);
 
         List<Lote> ObtenerDatosLotes(string Id);
     }

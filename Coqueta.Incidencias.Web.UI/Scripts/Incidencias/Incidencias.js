@@ -1,13 +1,13 @@
 ﻿//Load Data in Table when document is ready
 $(document).ready(function () {
-    cargarFiltrosLotes();
+    //cargarFiltrosLotes();
     cargarFiltrosIncidencias();
 
 });
 
 //Load data function
-function cargarFiltrosLotes() {
-    AjaxCallJson("/Incidencias/ObtenerLotes", {}, CallBackCargarFiltrosLotes)
+function cargarFiltrosLotes(rielId) {
+    AjaxCallJson("/Incidencias/ObtenerLotes", { banda: rielId}, CallBackCargarFiltrosLotes)
 }
 
 function CallBackCargarFiltrosLotes(data) {
@@ -38,11 +38,24 @@ $("#cboLotesMontado").change(function () {
         LimpiarCaptura();
 });
 
+
+
+$("#cboRiel").change(function () {
+    LimpiarCaptura();
+    var rielid = this.value;
+    if (rielid != 0)
+        cargarFiltrosLotes(rielid);
+    else
+        LimpiarCaptura();
+});
+
 function CallbackObtenerDatosLotes(datos) {
+    debugger;
     $("#Semana").val(datos[0].NumSem);
     $("#txtEstilo").val(datos[0].Estilo);
     $("#txtCombinacion").val(datos[0].Combinacion);
     $("#txtSuela").val(datos[0].Suela);
+    $("#txtPares").val(datos[0].Pares);
 
 }
 
@@ -51,9 +64,11 @@ function LimpiarCaptura() {
     $("#txtEstilo").val("");
     $("#txtCombinacion").val("");
     $("#txtSuela").val("");
+    $("#txtPares").val("");
     $("#Descripcion").val("");
     $('#FileUpload').val("");
     $('#user_img').attr('src', '');
+    $('#cboTipoIncidencia').val(0);
 }
 
 function validate() {
@@ -149,12 +164,7 @@ function CallBackGuardarOK() {
     $("#cboRiel").val("0");
     
     NotificacionRegistroGuardado();
-
-
-  
-
 }
-
 
 function show(input) {
     if (input.files && input.files[0]) {

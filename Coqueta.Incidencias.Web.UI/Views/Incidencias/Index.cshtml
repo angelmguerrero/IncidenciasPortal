@@ -3,7 +3,7 @@
 @model Tuple<Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.ReporteIncidencia, Coqueta.Incidencias.Web.Datos.Contexto.FotoPorlIncidencia>
 
 @{
-    ViewBag.Title = "Agregar Incidencias";
+    ViewBag.Title = "Agregar Incidencias Montado";
     Layout = "~/Views/Shared/LayoutPrivado.cshtml";
 }
 
@@ -18,10 +18,6 @@
 </style>
 @Html.AntiForgeryToken()
 <div class="row">
-    <div class="col-md-3 campoCorto">
-        @Html.LabelFor(model => model.Item1.Lote, new { @class = "control-label" })
-        @Html.DropDownList("cboLotesMontado", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control" })
-    </div>
 
     <div class="col-md-3">
         @Html.LabelFor(model => model.Item1.Riel, new { @class = "control-label" })
@@ -33,7 +29,15 @@
             new SelectListItem{ Text="3", Value = "3" },
             new SelectListItem{ Text="4", Value = "4" },
             new SelectListItem{ Text="5", Value = "5" },
+            new SelectListItem{ Text="6", Value = "6" },
+            new SelectListItem{ Text="8", Value = "8" },
         }, new { @class= "form-control"})
+    </div>
+
+
+    <div class="col-md-3 campoCorto">
+        @Html.LabelFor(model => model.Item1.Lote, new { @class = "control-label" })
+        @Html.DropDownList("cboLotesMontado", new SelectList(Enumerable.Empty<SelectListItem>()), new { @class = "form-control" })
     </div>
 
     <div class="col-md-3">
@@ -59,6 +63,10 @@
     <div class="col-md-3">
         <label>Suela :</label>
         <input id="txtSuela" type="text" class="form-control" readonly="readonly" />
+    </div>
+    <div class="col-md-3">
+        <label>Total Pares:</label>
+        <input id="txtPares" type="text" class="form-control" readonly="readonly" />
     </div>
 </div>
 

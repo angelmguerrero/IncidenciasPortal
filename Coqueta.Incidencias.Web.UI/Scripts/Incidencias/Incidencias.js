@@ -1,6 +1,5 @@
 ﻿//Load Data in Table when document is ready
 $(document).ready(function () {
-    //cargarFiltrosLotes();
     cargarFiltrosIncidencias();
 
 });
@@ -69,6 +68,8 @@ function LimpiarCaptura() {
     $('#FileUpload').val("");
     $('#user_img').attr('src', '');
     $('#cboTipoIncidencia').val(0);
+    $("#cboLotesMontado").empty();
+   
 }
 
 function validate() {
@@ -138,9 +139,11 @@ function GuardarIncidencia() {
                 processData: false, // Not to process data
                 data: fileData,
                 success: function (result) {
+                    debugger;
                     CallBackGuardarOK();
                 },
                 error: function (err) {
+                    debugger;
                     alert(err.statusText);
                 }
             });
@@ -159,7 +162,6 @@ function GuardarIncidencia() {
 
 function CallBackGuardarOK() {
     LimpiarCaptura();
-    cargarFiltrosLotes();
     cargarFiltrosIncidencias();
     $("#cboRiel").val("0");
     

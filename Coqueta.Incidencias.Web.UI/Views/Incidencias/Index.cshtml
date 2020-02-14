@@ -1,4 +1,7 @@
 ﻿@*@model Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.ReporteIncidencia*@
+@using Coqueta.Incidencias.Web.Aplicacion.Contexto;
+@using Coqueta.Incidencias.Web.Comun.Constantes;
+@using Coqueta.Incidencias.Web.Comun.Enumerados;
 
 @model Tuple<Coqueta.Incidencias.Web.Entidades.Dominio.Incidencias.ReporteIncidencia, Coqueta.Incidencias.Web.Datos.Contexto.FotoPorlIncidencia>
 
@@ -7,6 +10,7 @@
     Layout = "~/Views/Shared/LayoutPrivado.cshtml";
 }
 
+@{string versionScripts = ContextoConfiguracion.ObtenerValorParametro(EnumeradorParametro.VersionScripts); }
 <style>
     .custom-file-upload {
         border: 1px solid #ccc;
@@ -97,4 +101,4 @@
 </div>
 
 
-<script src="~/Scripts/Incidencias/Incidencias.js"></script>
+<script src="~/Scripts/Incidencias/Incidencias.js?v=@versionScripts"></script>

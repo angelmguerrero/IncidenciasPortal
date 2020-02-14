@@ -8,6 +8,8 @@ namespace Coqueta.Incidencias.Web.Comun.Enumerados
 {
     public enum EnumeradorParametro
     {
-        RepositorioFotos
+        RepositorioFotos,
+        VersionScripts
+
     }
 }
